@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import BaseIcon from "../components/BaseIcon.vue";
-import MainLogo from "../components/MainLogo.vue";
+import BaseIcon from "./BaseIcon.vue";
+import MainLogo from "./MainLogo.vue";
 
 import {useSiteStore} from "../stores/site";
 import {mapState} from "pinia";
@@ -73,13 +73,13 @@ export default {
     align-items: center;
 
     .navigation-list {
+        margin: 0;
+        padding: 0;
+
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 1.5rem;
-
-        margin: 0;
-        padding: 0;
 
         .navigation-item {
             display: flex;
@@ -109,9 +109,9 @@ export default {
         align-items: center;
         gap: 0.3125rem;
         .social {
-            border: 1px solid red;
             width: 25px;
             height: 25px;
+            border: 1px solid red;
         }
     }
 }
