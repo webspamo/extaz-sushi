@@ -1,3 +1,17 @@
 @use "_mixins";
 
-body {}
+body {
+    color: mixins.$main-text-color;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: mixins.$main-text-color;
+    text-decoration: none;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
