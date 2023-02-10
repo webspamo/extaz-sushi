@@ -14,51 +14,111 @@
                         href="#"
                         class="navigation-link">
                         Меню
-                        <svg-icon
-                            type="mdi"
-                            :path="path"
-                            class="table-icon"
-                            @click="openModal('edit', book)"></svg-icon>
+                        <BaseIcon name="chevron-down"></BaseIcon>
                     </a>
                 </li>
             </ul>
         </nav>
+        <MainLogo></MainLogo>
+        <div class="header-additional">
+            <div class="opening-hours">{{ startHours }} - {{ endHours }}</div>
+            <div class="socials">
+                <div class="social"></div>
+                <div class="social"></div>
+            </div>
+        </div>
     </header>
 </template>
 
 <script>
-import SvgIcon from "@jamescoyle/vue-icon";
-import {mdiChevronDown} from "@mdi/js";
+import BaseIcon from "../components/BaseIcon.vue";
+import MainLogo from "../components/MainLogo.vue";
+
+import {useSiteStore} from "../stores/site";
+import {mapState} from "pinia";
 
 export default {
     name: "TheHeader",
     components: {
-        SvgIcon,
+        BaseIcon,
+        MainLogo,
     },
     data() {
-        return {
-            path: mdiChevronDown,
-        };
+        return {};
+    },
+
+    computed: {
+        ...mapState(useSiteStore, ["startHours", "endHours"]),
     },
 };
 </script>
 <style lang="scss" scoped>
+@use "@/assets/styles/_mixins.scss";
 .header {
-    padding: 0 20px;
+    height: 75px;
+    padding: 0 1.25rem;
+    background-color: mixins.$main-background-color;
+
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
 }
 
 .header-navigation {
+    display: flex;
+    align-items: center;
+
     .navigation-list {
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: 1.5rem;
+
+        margin: 0;
+        padding: 0;
+
         .navigation-item {
-            list-style-type: none;
+            display: flex;
+            align-items: center;
         }
         .navigation-link {
-            text-decoration: none;
+            display: flex;
+            align-items: center;
             text-transform: uppercase;
         }
     }
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.header-additional {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+
+    .socials {
+        display: flex;
+        align-items: center;
+        gap: 0.3125rem;
+        .social {
+            border: 1px solid red;
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+.opening-hours {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>
