@@ -1,9 +1,17 @@
 @use "_mixins";
 
+// @font-face {
+//     font-family: "";
+//     src: url('./../fonts/Proxima-Nova-Bold.otf');
+// }
+
+
+
 body {
-    color: mixins.$main-text-color;
     padding: 0;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: mixins.$main-text-color;
 }
 
 a {
@@ -14,4 +22,16 @@ a {
 ul {
     padding: 0;
     list-style-type: none;
+}
+
+select {
+    border-radius: 5px;
+    padding: 0.2rem;
+}
+
+button {
+
+    &:hover {
+        cursor: pointer;
+    }
 }
