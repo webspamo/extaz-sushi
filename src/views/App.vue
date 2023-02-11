@@ -7,15 +7,18 @@
             <MenuItem />
             <MenuItem />
         </div>
+
+        <TheFooter />
     </div>
 </template>
 <script>
 import TheHeader from "../components/TheHeader.vue";
+import TheFooter from "../components/TheFooter.vue";
 import MenuItem from "../components/MenuItem.vue";
 
 export default {
     name: "App",
-    components: {TheHeader, MenuItem},
+    components: { TheHeader, MenuItem, TheFooter },
     data() {
         return {};
     },
