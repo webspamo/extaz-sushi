@@ -120,19 +120,20 @@ export default {
             justify-content: center;
             gap: 0.625rem;
 
-            .add-to-cart {
-                height: 45px;
-                border-radius: 50px;
+            &>* {
+                flex: 1 1 0;
             }
 
             .add-to-cart {
-                flex: 1 1 0;
                 background-color: mixins.$main-accent;
                 transition: transform 0.2s;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
+
+                height: 45px;
+                border-radius: 50px;
 
                 &:hover {
                     transform: scale(0.9);
