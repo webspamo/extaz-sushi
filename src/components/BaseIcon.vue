@@ -7,6 +7,8 @@
 import SvgIcon from "@jamescoyle/vue-icon";
 import {mdiChevronDown} from "@mdi/js";
 import {mdiShoppingOutline} from "@mdi/js";
+import {mdilPlus} from "@mdi/light-js";
+import {mdilMinus} from "@mdi/light-js";
 
 export default {
     name: "BaseIcon",
@@ -21,6 +23,8 @@ export default {
             icons: {
                 "chevron-down": mdiChevronDown,
                 "shopping-basket": mdiShoppingOutline,
+                "plus-light": mdilPlus,
+                "minus-light": mdilMinus,
             },
         };
     },

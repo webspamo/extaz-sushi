@@ -30,7 +30,7 @@
                         :disabled="quantity === 1"
                         @click="quantity--"
                         class="quantity-button">
-                        -
+                        <BaseIcon name="minus-light"></BaseIcon>
                     </button>
                     <input
                         type="text"
@@ -42,7 +42,7 @@
                         type="button"
                         @click="quantity++"
                         class="quantity-button">
-                        +
+                        <BaseIcon name="plus-light"></BaseIcon>
                     </button>
                 </div>
                 <button class="add-to-cart">
@@ -138,31 +138,35 @@ export default {
             .quantity,
             .add-to-cart {
                 height: 45px;
-                padding: 0 2.5rem;
                 border-radius: 50px;
             }
 
             .quantity {
+                flex: 1 1 0;
                 background-color: #fff;
 
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-                gap: 0.5rem;
 
                 &-button {
+                    background-color: transparent;
+
                     &:hover {
                     }
                     cursor: pointer;
-                    background-color: rgb(185, 185, 185);
                 }
                 &-input {
                     width: 2rem;
+                    outline-style: none;
+                    outline-color: transparent;
+                    border: none;
                     text-align: center;
                 }
             }
 
             .add-to-cart {
+                flex: 1 1 0;
                 background-color: mixins.$main-accent;
                 transition: transform 0.2s;
 
