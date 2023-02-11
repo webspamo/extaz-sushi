@@ -86,9 +86,16 @@ export default {
             align-items: center;
         }
         .navigation-link {
+            transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
             display: flex;
             align-items: center;
             text-transform: uppercase;
+
+            &:hover {
+                color: #00b3ff;
+                opacity: 0.9;
+            }
         }
     }
 }
