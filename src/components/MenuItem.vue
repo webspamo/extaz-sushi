@@ -1,8 +1,7 @@
 <template>
     <div class="menu-item">
         <div class="item-image">
-            <img
-                src="@/assets/images/sushi-1.jpg"
+            <img src="@/assets/images/sushi-1.jpg"
                 alt="" />
         </div>
         <div class="item-details">
@@ -24,30 +23,12 @@
                 </label>
             </div>
             <div class="item-controls">
-                <div class="quantity">
-                    <button
-                        type="button"
-                        :disabled="quantity === 1"
-                        @click="quantity--"
-                        class="quantity-button">
-                        <BaseIcon name="minus-light"></BaseIcon>
-                    </button>
-                    <input
-                        type="text"
-                        required
-                        pattern="\d+"
-                        v-model="quantity"
-                        class="quantity-input" />
-                    <button
-                        type="button"
-                        @click="quantity++"
-                        class="quantity-button">
-                        <BaseIcon name="plus-light"></BaseIcon>
-                    </button>
-                </div>
+                <BaseQuantity v-model="quantity"
+                    @less="quantity--"
+                    @more="quantity++" />
+
                 <button class="add-to-cart">
-                    <BaseIcon
-                        name="shopping-basket"
+                    <BaseIcon name="shopping-basket"
                         class="shopping-basket-icon"></BaseIcon>
                 </button>
             </div>
@@ -57,16 +38,20 @@
 
 <script>
 import BaseIcon from "./BaseIcon.vue";
+import BaseQuantity from "./BaseQuantity.vue";
 
 export default {
     name: "MenuItem",
     components: {
         BaseIcon,
+        BaseQuantity
     },
     data() {
         return {
-            quantity: 1,
+            quantity: 1
         };
+    },
+    methods: {
     },
 };
 </script>
@@ -135,34 +120,9 @@ export default {
             justify-content: center;
             gap: 0.625rem;
 
-            .quantity,
             .add-to-cart {
                 height: 45px;
                 border-radius: 50px;
-            }
-
-            .quantity {
-                flex: 1 1 0;
-                background-color: #fff;
-
-                display: flex;
-                align-items: center;
-                justify-content: flex-end;
-
-                &-button {
-                    background-color: transparent;
-
-                    &:hover {
-                    }
-                    cursor: pointer;
-                }
-                &-input {
-                    width: 2rem;
-                    outline-style: none;
-                    outline-color: transparent;
-                    border: none;
-                    text-align: center;
-                }
             }
 
             .add-to-cart {
