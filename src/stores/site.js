@@ -13,19 +13,36 @@ export const useSiteStore = defineStore("site", {
                 image: imagesPath + "sushi-1.jpg",
                 description: "Обпалений, карамелізований унагі соусом лосось, креветка, ікра тобіко, авокадо.",
                 weight: 330,
+                weightName: "grams",
                 price: 440,
+                currency: "uah",
                 options: {
                     name: "Обрати",
                     items: [
+                        {
+                            key: "tuna",
+                            name: "Тунець",
+                            price: 50,
+                            weight: 40,
+                            image: ``
+                        },
                         {
                             key: "losos",
                             name: "Лосось",
                             price: 10,
                             weight: 10,
                             image: ``
+                        },
+
+                        {
+                            key: "igor",
+                            name: "Вугор",
+                            price: -10,
+                            weight: 10,
+                            image: ``
                         }
                     ]
-                }
+                },
             },
         ],
     }),
