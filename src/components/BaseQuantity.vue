@@ -42,7 +42,6 @@ export default {
 @use "@/assets/styles/_mixins";
 
 .quantity {
-    flex: 1 1 0;
     background-color: #fff;
 
     height: 45px;
@@ -50,12 +49,51 @@ export default {
 
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-evenly;
 
     &-button {
+        color: black;
         background-color: transparent;
 
-        &:hover {}
+        position: relative;
+
+        &:first-child {
+            padding: 0 0.3125rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+
+                top: 50%;
+                right: 0;
+
+                transform: translateY(-50%);
+
+                display: block;
+                height: 100%;
+                width: 1px;
+                background-color: lightgray;
+            }
+        }
+
+        &:last-child {
+            padding: 0 0.3125rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+
+                top: 50%;
+                left: 0;
+
+                transform: translateY(-50%);
+
+                display: block;
+                height: 100%;
+                width: 1px;
+                background-color: lightgray;
+            }
+        }
 
         cursor: pointer;
     }
