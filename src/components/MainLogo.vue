@@ -43,6 +43,5 @@ export default {
 .logo-img {
     height: auto;
     width: 160px;
-    max-width: 160px;
 }
 </style>
