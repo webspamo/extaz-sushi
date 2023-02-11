@@ -24,11 +24,31 @@
                 </label>
             </div>
             <div class="item-controls">
-                <div class="quantity"></div>
+                <div class="quantity">
+                    <button
+                        type="button"
+                        :disabled="quantity === 1"
+                        @click="quantity--"
+                        class="quantity-button">
+                        -
+                    </button>
+                    <input
+                        type="text"
+                        required
+                        pattern="\d+"
+                        v-model="quantity"
+                        class="quantity-input" />
+                    <button
+                        type="button"
+                        @click="quantity++"
+                        class="quantity-button">
+                        +
+                    </button>
+                </div>
                 <button class="add-to-cart">
                     <BaseIcon
                         name="shopping-basket"
-                        class="shopping-basket"></BaseIcon>
+                        class="shopping-basket-icon"></BaseIcon>
                 </button>
             </div>
         </div>
@@ -44,7 +64,9 @@ export default {
         BaseIcon,
     },
     data() {
-        return {};
+        return {
+            quantity: 1,
+        };
     },
 };
 </script>
@@ -121,18 +143,40 @@ export default {
             }
 
             .quantity {
-                background-color: white;
+                background-color: #fff;
+
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 0.5rem;
+
+                &-button {
+                    &:hover {
+                    }
+                    cursor: pointer;
+                    background-color: rgb(185, 185, 185);
+                }
+                &-input {
+                    width: 2rem;
+                    text-align: center;
+                }
             }
 
             .add-to-cart {
                 background-color: mixins.$main-accent;
+                transition: transform 0.2s;
 
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                .shopping-basket {
+                &:hover {
+                    transform: scale(0.9);
+                }
+
+                .shopping-basket-icon {
                     width: 45px;
+                    color: white;
                 }
             }
         }
