@@ -5,20 +5,19 @@
                 alt="" />
         </div>
         <div class="item-details">
-            <div class="item-name">ЕЙФОРІЯ РОЛ</div>
-            <div class="item-description">
-                Обпалений, карамелізований унагі соусом лосось, креветка, ікра
-                тобіко, авокадо.
-            </div>
-            <div class="item-weight">330g</div>
-            <div class="item-price">440грн</div>
+            <div class="item-name">{{ name }}</div>
+            <div class="item-description"> {{ description }} </div>
+            <div class="item-weight">{{ weightWithOptions }}{{ weightName }}</div>
+            <div class="item-price">{{ priceWithOptions }} {{ currency }}</div>
         </div>
         <div class="item-footer">
             <div class="item-options">
                 <label>
-                    Select
-                    <select value="1">
-                        <option value="1">Losos</option>
+                    {{ options.name }}
+                    <select v-model="selectedOptionId">
+                        <option v-for="option in options.items"
+                            :key="option.key"
+                            :value="option.key">{{ option.name }}</option>
                     </select>
                 </label>
             </div>
@@ -46,13 +45,56 @@ export default {
         BaseIcon,
         BaseQuantity
     },
+    props: {
+        name: String,
+        description: String,
+        weight: Number,
+        weightName: String,
+        price: Number,
+        currency: String,
+        options: Object
+    },
     data() {
         return {
-            quantity: 1
+            quantity: 1,
+
+            selectedOptionId: null
         };
+    },
+    computed: {
+        selectedOption() {
+            if (this.selectedOptionId) {
+                return this.options.items.find(e => e.key === this.selectedOptionId);
+            }
+
+            return null;
+        },
+        priceWithOptions() {
+            if (!this.selectedOption) {
+                return this.price;
+            }
+
+            return this.price + this.selectedOption.price;
+        },
+        weightWithOptions() {
+            if (!this.selectedOption) {
+                return this.weight;
+            }
+
+            return this.weight + this.selectedOption.weight;
+        },
     },
     methods: {
     },
+    created() {
+        if (this.options && this.options.items) {
+            const firstOptionItem = this.options.items[0];
+
+            if (firstOptionItem) {
+                this.selectedOptionId = firstOptionItem.key;
+            }
+        }
+    }
 };
 </script>
 
@@ -63,6 +105,8 @@ export default {
     border-radius: 30px;
     background-color: #01161a;
     overflow: hidden;
+
+    max-width: 350px;
 
     .item-image {
         img {
