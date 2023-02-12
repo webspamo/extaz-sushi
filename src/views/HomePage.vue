@@ -66,11 +66,12 @@ export default {
 <style lang="scss" scoped>
 @use "@/assets/styles/_mixins";
 .menu-items {
-    display: flex;
-    margin: 0 auto;
-    gap: 1rem;
     max-width: 850px;
     padding: 1rem;
+    margin: 0 auto;
+
+    display: flex;
+    gap: 3rem;
     flex-wrap: wrap;
 
     .menu-item {
