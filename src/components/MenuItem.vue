@@ -1,33 +1,46 @@
 <template>
     <div class="menu-item">
         <div class="item-image">
-            <img src="@/assets/images/sushi-1.jpg"
+            <img
+                src="@/assets/images/sushi-1.jpg"
                 alt="" />
         </div>
         <div class="item-details">
             <div class="item-name">{{ name }}</div>
-            <div class="item-description"> {{ description }} </div>
-            <div class="item-weight">{{ weightWithAddons }}{{ weightName }}</div>
+            <div class="item-description">{{ description }}</div>
+            <div class="item-weight">
+                {{ weightWithOptions }}{{ weightName }}
+            </div>
+            <div class="item-price">{{ priceWithOptions }} {{ currency }}</div>
+            <div class="item-description">{{ description }}</div>
+            <div class="item-weight">
+                {{ weightWithAddons }}{{ weightName }}
+            </div>
             <div class="item-price">{{ priceWithAddons }} {{ currency }}</div>
         </div>
         <div class="item-footer">
             <div class="item-addons">
                 <label>
-                    {{ addons.name }}
-                    <select v-model="selectedAddonId">
-                        <option v-for="option in addons.items"
-                            :key="option.key"
-                            :value="option.key">{{ option.name }}</option>
+                    {{ options.name }}
+                    <select v-model="selectedOptionId">
+                        <option
+                            v-for="option in options.items"
+                            :key="option.id"
+                            :value="option.id">
+                            {{ option.name }}
+                        </option>
                     </select>
                 </label>
             </div>
             <div class="item-controls">
-                <BaseQuantity v-model="quantity"
+                <BaseQuantity
+                    v-model="quantity"
                     @less="quantity--"
                     @more="quantity++" />
 
                 <button class="add-to-cart">
-                    <BaseIcon name="shopping-basket"
+                    <BaseIcon
+                        name="shopping-basket"
                         class="shopping-basket-icon"></BaseIcon>
                 </button>
             </div>
@@ -43,7 +56,7 @@ export default {
     name: "MenuItem",
     components: {
         BaseIcon,
-        BaseQuantity
+        BaseQuantity,
     },
     props: {
         name: String,
@@ -52,19 +65,22 @@ export default {
         weightName: String,
         price: Number,
         currency: String,
-        addons: Object
+        addons: Object,
     },
     data() {
         return {
             quantity: 1,
 
-            selectedAddonId: null
+            selectedOptionId: null,
+            selectedAddonId: null,
         };
     },
     computed: {
-        selectedAddon() {
-            if (this.selectedAddonId) {
-                return this.addons.items.find(e => e.key === this.selectedAddonId);
+        selectedOption() {
+            if (this.selectedOptionId) {
+                return this.options.items.find(
+                    (e) => e.id === this.selectedOptionId
+                );
             }
 
             return null;
@@ -84,17 +100,16 @@ export default {
             return this.weight + this.selectedAddon.weight;
         },
     },
-    methods: {
-    },
+    methods: {},
     created() {
         if (this.addons && this.addons.items) {
             const firstAddonItem = this.addons.items[0];
 
             if (firstAddonItem) {
-                this.selectedAddonId = firstAddonItem.key;
+                this.selectedAddonId = firstAddonItem.id;
             }
         }
-    }
+    },
 };
 </script>
 
@@ -164,7 +179,7 @@ export default {
             justify-content: center;
             gap: 0.625rem;
 
-            &>* {
+            & > * {
                 flex: 1 1 0;
             }
 
