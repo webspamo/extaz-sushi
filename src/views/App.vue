@@ -11,7 +11,7 @@
                 :weight-name="item.weightName"
                 :price="item.price"
                 :currency="item.currency"
-                :options="item.options" />
+                :addons="item.addons" />
         </div>
 
         <TheFooter />

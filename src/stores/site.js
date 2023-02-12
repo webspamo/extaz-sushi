@@ -16,7 +16,7 @@ export const useSiteStore = defineStore("site", {
                 weightName: "grams",
                 price: 440,
                 currency: "uah",
-                options: {
+                addons: {
                     name: "Обрати",
                     items: [
                         {

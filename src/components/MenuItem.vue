@@ -7,15 +7,15 @@
         <div class="item-details">
             <div class="item-name">{{ name }}</div>
             <div class="item-description"> {{ description }} </div>
-            <div class="item-weight">{{ weightWithOptions }}{{ weightName }}</div>
-            <div class="item-price">{{ priceWithOptions }} {{ currency }}</div>
+            <div class="item-weight">{{ weightWithAddons }}{{ weightName }}</div>
+            <div class="item-price">{{ priceWithAddons }} {{ currency }}</div>
         </div>
         <div class="item-footer">
-            <div class="item-options">
+            <div class="item-addons">
                 <label>
-                    {{ options.name }}
-                    <select v-model="selectedOptionId">
-                        <option v-for="option in options.items"
+                    {{ addons.name }}
+                    <select v-model="selectedAddonId">
+                        <option v-for="option in addons.items"
                             :key="option.key"
                             :value="option.key">{{ option.name }}</option>
                     </select>
@@ -52,46 +52,46 @@ export default {
         weightName: String,
         price: Number,
         currency: String,
-        options: Object
+        addons: Object
     },
     data() {
         return {
             quantity: 1,
 
-            selectedOptionId: null
+            selectedAddonId: null
         };
     },
     computed: {
-        selectedOption() {
-            if (this.selectedOptionId) {
-                return this.options.items.find(e => e.key === this.selectedOptionId);
+        selectedAddon() {
+            if (this.selectedAddonId) {
+                return this.addons.items.find(e => e.key === this.selectedAddonId);
             }
 
             return null;
         },
-        priceWithOptions() {
-            if (!this.selectedOption) {
+        priceWithAddons() {
+            if (!this.selectedAddon) {
                 return this.price;
             }
 
-            return this.price + this.selectedOption.price;
+            return this.price + this.selectedAddon.price;
         },
-        weightWithOptions() {
-            if (!this.selectedOption) {
+        weightWithAddons() {
+            if (!this.selectedAddon) {
                 return this.weight;
             }
 
-            return this.weight + this.selectedOption.weight;
+            return this.weight + this.selectedAddon.weight;
         },
     },
     methods: {
     },
     created() {
-        if (this.options && this.options.items) {
-            const firstOptionItem = this.options.items[0];
+        if (this.addons && this.addons.items) {
+            const firstAddonItem = this.addons.items[0];
 
-            if (firstOptionItem) {
-                this.selectedOptionId = firstOptionItem.key;
+            if (firstAddonItem) {
+                this.selectedAddonId = firstAddonItem.key;
             }
         }
     }
@@ -149,7 +149,7 @@ export default {
         flex-direction: column;
         gap: 1.5rem;
 
-        .item-options {
+        .item-addons {
             label {
                 display: flex;
                 flex-direction: column;
