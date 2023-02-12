@@ -12,11 +12,6 @@
                 {{ weightWithAddons }}{{ weightName }}
             </div>
             <div class="item-price">{{ priceWithAddons }} {{ currency }}</div>
-            <div class="item-description">{{ description }}</div>
-            <div class="item-weight">
-                {{ weightWithAddons }}{{ weightName }}
-            </div>
-            <div class="item-price">{{ priceWithAddons }} {{ currency }}</div>
         </div>
         <div class="item-footer">
             <div class="item-addons">
