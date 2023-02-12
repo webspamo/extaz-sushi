@@ -47,7 +47,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 weightName: "grams",
                 price: 440,
                 currency: "uah",
-                options: {
+                addons: {
                     name: "Обрати",
                     items: [
                         {

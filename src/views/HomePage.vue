@@ -10,7 +10,7 @@
                 :weight-name="item.weightName"
                 :price="item.price"
                 :currency="item.currency"
-                :options="item.options" />
+                :addons="item.addons" />
         </div>
         <div class="items-categories">
             <ItemsCategory v-for="category in getAllCategoriesTitle" />
@@ -22,7 +22,6 @@ import MenuItem from "../components/MenuItem.vue";
 import ItemsCategory from "../components/ItemsCategory.vue";
 
 import {mapState} from "pinia";
-import {useSiteStore} from "@/stores/site";
 import {useAssortmentStore} from "@/stores/assortment";
 
 export default {

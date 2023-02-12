@@ -9,9 +9,9 @@
             <div class="item-name">{{ name }}</div>
             <div class="item-description">{{ description }}</div>
             <div class="item-weight">
-                {{ weightWithOptions }}{{ weightName }}
+                {{ weightWithAddons }}{{ weightName }}
             </div>
-            <div class="item-price">{{ priceWithOptions }} {{ currency }}</div>
+            <div class="item-price">{{ priceWithAddons }} {{ currency }}</div>
             <div class="item-description">{{ description }}</div>
             <div class="item-weight">
                 {{ weightWithAddons }}{{ weightName }}
@@ -21,13 +21,13 @@
         <div class="item-footer">
             <div class="item-addons">
                 <label>
-                    {{ options.name }}
-                    <select v-model="selectedOptionId">
+                    {{ addons.name }}
+                    <select v-model="selectedAddonId">
                         <option
-                            v-for="option in options.items"
-                            :key="option.id"
-                            :value="option.id">
-                            {{ option.name }}
+                            v-for="addon in addons.items"
+                            :key="addon.id"
+                            :value="addon.id">
+                            {{ addon.name }}
                         </option>
                     </select>
                 </label>
@@ -71,15 +71,14 @@ export default {
         return {
             quantity: 1,
 
-            selectedOptionId: null,
             selectedAddonId: null,
         };
     },
     computed: {
-        selectedOption() {
-            if (this.selectedOptionId) {
-                return this.options.items.find(
-                    (e) => e.id === this.selectedOptionId
+        selectedAddon() {
+            if (this.selectedAddonId) {
+                return this.addons.items.find(
+                    (e) => e.id === this.selectedAddonId
                 );
             }
 
