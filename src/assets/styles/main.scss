@@ -26,6 +26,15 @@ body {
     max-width: mixins.$desktop;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: mixins.$main-accent;
+}
+
 a {
     color: mixins.$main-text-color;
     text-decoration: none;
