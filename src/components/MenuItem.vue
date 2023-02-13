@@ -2,7 +2,7 @@
     <div class="menu-item">
         <div class="item-image">
             <img
-                src="@/assets/images/sushi-1.jpg"
+                :src="image"
                 alt="" />
         </div>
         <div class="item-details">
@@ -55,6 +55,7 @@ export default {
     },
     props: {
         name: String,
+        image: String,
         description: String,
         weight: Number,
         weightName: String,
@@ -65,7 +66,6 @@ export default {
     data() {
         return {
             quantity: 1,
-
             selectedAddonId: null,
         };
     },
