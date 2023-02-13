@@ -31,6 +31,9 @@
         <div class="section">
             <InfoContent />
         </div>
+        <div class="section">
+            <ContactsContent />
+        </div>
     </main>
 </template>
 
@@ -38,6 +41,7 @@
 import MenuItem from "../components/MenuItem.vue";
 import ItemsCategory from "../components/ItemsCategory.vue";
 import InfoContent from "../components/InfoContent.vue";
+import ContactsContent from "../components/ContactsContent.vue";
 
 import {mapState} from "pinia";
 import {useAssortmentStore} from "@/stores/assortment";
@@ -48,6 +52,7 @@ export default {
         MenuItem,
         ItemsCategory,
         InfoContent,
+        ContactsContent,
     },
     data() {
         return {
