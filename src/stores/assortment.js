@@ -1,39 +1,45 @@
 import {defineStore} from "pinia";
 
-const imagesPath = "@/assets/images/";
+const imagesPath = "/src/assets/images/"; // @/assets
 
 export const useAssortmentStore = defineStore("assortment", {
     state: () => ({
-        menuCategories: [
+        itemCategories: [
             {
-                id: "Classical",
+                id: "classical",
                 title: "Класичні",
-                containedItemsId: "",
+                image: imagesPath + "classical_category-image.jpeg",
+                containedItemsId: [],
             },
             {
-                id: "Specialty",
+                id: "specialty",
                 title: "Фірмові",
-                containedItemsId: "",
+                image: imagesPath + "specialty_category-image.jpeg",
+                containedItemsId: [],
             },
             {
-                id: "Sets",
+                id: "sets",
                 title: "Сети",
-                containedItemsId: "",
+                image: imagesPath + "sets_category-image.jpeg",
+                containedItemsId: [],
             },
             {
-                id: "Sushi",
-                title: "Суші",
-                containedItemsId: "",
-            },
-            {
-                id: "Baked",
+                id: "baked",
                 title: "Запечені",
-                containedItemsId: "",
+                image: imagesPath + "baked_category-image.jpeg",
+                containedItemsId: [],
             },
             {
-                id: "Adds",
+                id: "sushi",
+                title: "Суші",
+                image: imagesPath + "sushi_category-image.jpeg",
+                containedItemsId: [],
+            },
+            {
+                id: "adds",
                 title: "Додатки",
-                containedItemsId: "",
+                image: imagesPath + "adds_category-image.jpeg",
+                containedItemsId: [],
             },
         ],
         menuItems: [
@@ -81,15 +87,6 @@ export const useAssortmentStore = defineStore("assortment", {
         getMenuItemById: (state) => {
             return (itemId) =>
                 state.menuItems.find((item) => item.id === itemId);
-        },
-        getAllCategoriesTitle: (state) => {
-            let categories = [];
-            state.menuCategories.forEach((category) => {
-                for (const key in category) {
-                    if (key === "title") categories.push(category[key]);
-                }
-            });
-            return categories;
         },
     },
 });
