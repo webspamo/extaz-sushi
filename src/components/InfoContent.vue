@@ -25,6 +25,8 @@ export default {
     name: "InfoContent",
     data() {
         return {
+            workingStartHours: null,
+            workingEndHours: null,
             cards: [
                 {
                     id: "deliveryInfo",
@@ -50,7 +52,7 @@ export default {
                 {
                     id: "workingHoursInfo",
                     title: "Працюємо",
-                    text: `щодня з ${this.startHours} до ${this.endHours}`,
+                    text: `щодня з ${this.workingStartHours} до ${this.workingEndHours}`,
                     imagePath: "/src/assets/images/working-hours-image.svg",
                     imageAlt: "Clock outline image",
                 },
@@ -60,6 +62,10 @@ export default {
 
     computed: {
         ...mapState(useSiteStore, ["startHours", "endHours"]),
+    },
+    created() {
+        this.workingStartHours = this.startHours;
+        this.workingEndHours = this.endHours;
     },
 };
 </script>
@@ -83,7 +89,6 @@ export default {
 
 .card-titile {
     text-transform: uppercase;
-    color: mixins.$main-accent;
     font-size: 1.875rem;
 }
 </style>
