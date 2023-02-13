@@ -1,25 +1,43 @@
 <template>
     <main>
-        <div class="menu-items">
-            <MenuItem
-                v-for="item in topMenuItems"
-                :key="item.id"
-                :name="item.name"
-                :description="item.description"
-                :weight="item.weight"
-                :weight-name="item.weightName"
-                :price="item.price"
-                :currency="item.currency"
-                :addons="item.addons" />
+        <div class="section">
+            <div class="menu-items container">
+                <MenuItem
+                    v-for="item in topMenuItems"
+                    :key="item.id"
+                    :name="item.name"
+                    :image="item.image"
+                    :description="item.description"
+                    :weight="item.weight"
+                    :weight-name="item.weightName"
+                    :price="item.price"
+                    :currency="item.currency"
+                    :addons="item.addons" />
+            </div>
         </div>
-        <div class="items-categories">
-            <ItemsCategory v-for="category in getAllCategoriesTitle" />
+
+        <div class="section">
+            <div class="item-categories container">
+                <ItemsCategory
+                    v-for="category in itemCategories"
+                    :key="category.id"
+                    :id="category.id"
+                    :title="category.title"
+                    :image="category.image"
+                    :containedItemsId="category.containedItemsId" />
+            </div>
+        </div>
+
+        <div class="section">
+            <InfoContent />
         </div>
     </main>
 </template>
+
 <script>
 import MenuItem from "../components/MenuItem.vue";
 import ItemsCategory from "../components/ItemsCategory.vue";
+import InfoContent from "../components/InfoContent.vue";
 
 import {mapState} from "pinia";
 import {useAssortmentStore} from "@/stores/assortment";
@@ -29,6 +47,7 @@ export default {
     components: {
         MenuItem,
         ItemsCategory,
+        InfoContent,
     },
     data() {
         return {
@@ -41,11 +60,9 @@ export default {
             ],
         };
     },
+
     computed: {
-        ...mapState(useAssortmentStore, [
-            "getMenuItemById",
-            "getAllCategoriesTitle",
-        ]),
+        ...mapState(useAssortmentStore, ["getMenuItemById", "itemCategories"]),
 
         topMenuItems() {
             const items = [];
@@ -63,25 +80,24 @@ export default {
     },
 };
 </script>
+
 <style lang="scss" scoped>
 @use "@/assets/styles/_mixins";
 .menu-items {
-    max-width: 850px;
-    padding: 1rem;
-    margin: 0 auto;
-
     display: flex;
-    gap: 3rem;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 2.5rem;
 
     .menu-item {
         width: 100%;
     }
 }
 
-.items-categories {
-    background-color: mixins.$secondary-accent;
-
+.item-categories {
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 350px 250px 150px;
+    gap: 40px 60px;
 }
 </style>
