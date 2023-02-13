@@ -111,6 +111,7 @@ export default {
     justify-content: flex-end;
     gap: 1rem;
 
+    // В отдельнй компонент.
     .socials {
         display: flex;
         align-items: center;
