@@ -1,32 +1,27 @@
 @use "sass:map";
 
 $main-text-color: #eeeeee;
-$main-background-color: black;
+
+$main-bg-color: black;
+$secondary-bg-color: #01161a;
 
 $main-accent: #00d5ff;
 $secondary-accent: #01161a;
 
-$gap: 32px;
 $mobile: 0px;
 $tablet: 768px;
-$desktop: 960px + (2 * $gap);
-$widescreen: 1152px + (2 * $gap);
-$fullhd: 1344px + (2 * $gap);
-$xl: $fullhd;
+$desktop: 1140px;
 $lg: $desktop;
 $md: $tablet;
 $sm: 480px;
 $xs: 320px;
 
 $breakpoints: (
-    "gap": $gap,
     "sm": $sm,
     "xs": $xs,
     "mobile": $mobile,
     "tablet": $tablet,
     "desktop": $desktop,
-    "widescreen": $widescreen,
-    "fullhd": $fullhd,
 );
 
 // courtesy of Glenn McComb
@@ -38,7 +33,9 @@ $breakpoints: (
         @media (min-width: ($breakpoint-value)) {
             @content;
         }
-    } @else {
+    }
+
+    @else {
         @media (min-width: ($breakpoint)) {
             @content;
         }
@@ -52,7 +49,9 @@ $breakpoints: (
         @media (max-width: ($breakpoint-value - 1px)) {
             @content;
         }
-    } @else {
+    }
+
+    @else {
         @media (max-width: ($breakpoint - 1px)) {
             @content;
         }
