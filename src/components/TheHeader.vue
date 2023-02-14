@@ -1,30 +1,34 @@
 <template>
     <header class="header">
         <nav class="header-navigation">
-            <div class="navigation-list">
-                <div class="navigation-item">
-                    <a href="#"
+            <ul class="navigation-list">
+                <li class="navigation-item">
+                    <a
+                        href="#"
                         class="navigation-link">
                         Доставка та оплата
                     </a>
-                </div>
-                <div class="navigation-item navigation-dropdown">
-                    <a href="#"
+                </li>
+                <li class="navigation-item navigation-dropdown">
+                    <button
+                        @click="isActive = !isActive"
                         class="navigation-link">
                         Меню
                         <BaseIcon name="chevron-down"></BaseIcon>
-                    </a>
-                    <div class="navigation-dropdown-content">
-                        <div class="navigation-dropdown-link"
+                    </button>
+                    <nav
+                        class="navigation-dropdown-content"
+                        :class="{active: isActive}">
+                        <router-link
+                            class="navigation-dropdown-link"
                             v-for="category in itemCategories"
-                            :key="category.id">
-                            <router-link :to="`/${category.id}`">
-                                {{ category.title }}
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            :key="category.id"
+                            :to="`/${category.id}`">
+                            {{ category.title }}
+                        </router-link>
+                    </nav>
+                </li>
+            </ul>
         </nav>
         <MainLogo></MainLogo>
         <div class="header-additional">
@@ -35,9 +39,9 @@
 </template>
 
 <script>
-import { useSiteStore } from "../stores/site";
-import { useAssortmentStore } from "../stores/assortment";
-import { mapState } from "pinia";
+import {useSiteStore} from "../stores/site";
+import {useAssortmentStore} from "../stores/assortment";
+import {mapState} from "pinia";
 
 import BaseIcon from "./BaseIcon.vue";
 import MainLogo from "./MainLogo.vue";
@@ -51,7 +55,9 @@ export default {
         SocialLinks,
     },
     data() {
-        return {};
+        return {
+            isActive: false,
+        };
     },
 
     computed: {
@@ -71,7 +77,7 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    &>* {
+    & > * {
         flex-grow: 1;
         flex-basis: 0;
     }
@@ -96,7 +102,7 @@ export default {
         }
 
         .navigation-link {
-            transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            transition: color 250ms ease-in-out, opacity 250ms ease-in-out;
 
             display: flex;
             align-items: center;
@@ -115,31 +121,46 @@ export default {
         &-content {
             position: absolute;
             z-index: 1;
+            top: calc(100% + 1rem); //connected (*)
+            left: -55%;
+            padding: 1.5rem 2.5rem;
 
-            display: none;
-
-            top: 0;
-            left: 50%;
-            transform: translate(-50%);
-
-            margin-top: 2rem;
-
-            padding: 1.5rem;
             border-radius: 30px;
-            background-color: lightblue;
-        }
+            background-color: white;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-5%);
+            transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
 
-        &:hover {
-            .navigation-dropdown-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -1rem; // remove gap after navigation-dropdown (*)
+                height: 1rem; //connected (*)
+                width: 100%;
             }
         }
 
-        .navigation-dropdown-link a {
+        &:hover .navigation-dropdown-content,
+        .active {
+            pointer-events: auto;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navigation-dropdown-link {
             color: black;
+            text-transform: uppercase;
+            transition: color 250ms ease-in-out;
+            &:hover {
+                color: mixins.$main-accent;
+            }
         }
     }
 }
