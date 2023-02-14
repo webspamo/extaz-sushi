@@ -2,28 +2,27 @@
     <header class="header">
         <nav class="header-navigation">
             <div class="navigation-list">
-                <a
-                    href="#"
-                    class="navigation-link">
-                    Доставка та оплата
-                </a>
                 <div class="navigation-item">
-                    <a
-                        href="#"
-                        class="navigation-link navigation-dropdown">
+                    <a href="#"
+                        class="navigation-link">
+                        Доставка та оплата
+                    </a>
+                </div>
+                <div class="navigation-item navigation-dropdown">
+                    <a href="#"
+                        class="navigation-link">
                         Меню
                         <BaseIcon name="chevron-down"></BaseIcon>
                     </a>
-                    <nav class="navigation-dropdown-content">
-                        <div
-                            class="navigation-dropdown-link"
+                    <div class="navigation-dropdown-content">
+                        <div class="navigation-dropdown-link"
                             v-for="category in itemCategories"
                             :key="category.id">
                             <router-link :to="`/${category.id}`">
                                 {{ category.title }}
                             </router-link>
                         </div>
-                    </nav>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -36,9 +35,9 @@
 </template>
 
 <script>
-import {useSiteStore} from "../stores/site";
-import {useAssortmentStore} from "../stores/assortment";
-import {mapState} from "pinia";
+import { useSiteStore } from "../stores/site";
+import { useAssortmentStore } from "../stores/assortment";
+import { mapState } from "pinia";
 
 import BaseIcon from "./BaseIcon.vue";
 import MainLogo from "./MainLogo.vue";
@@ -63,6 +62,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @use "@/assets/styles/_mixins.scss";
+
 .header {
     height: 75px;
     padding: 0 1.25rem;
@@ -71,7 +71,7 @@ export default {
     display: flex;
     justify-content: space-between;
 
-    & > * {
+    &>* {
         flex-grow: 1;
         flex-basis: 0;
     }
@@ -94,6 +94,7 @@ export default {
             display: flex;
             align-items: center;
         }
+
         .navigation-link {
             transition: color 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
@@ -107,26 +108,38 @@ export default {
             }
         }
     }
+
     .navigation-dropdown {
         position: relative;
+
         &-content {
             position: absolute;
             z-index: 1;
-            min-width: 100%;
-            padding: 1.5rem;
+
             display: none;
-            inset: 100% -50%;
+
+            top: 0;
+            left: 50%;
+            transform: translate(-50%);
+
+            margin-top: 2rem;
+
+            padding: 1.5rem;
             border-radius: 30px;
             background-color: lightblue;
         }
-        &:hover .navigation-dropdown-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
+
+        &:hover {
+            .navigation-dropdown-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
         }
-        .navigation-dropdown-link {
-            color: white;
+
+        .navigation-dropdown-link a {
+            color: black;
         }
     }
 }
