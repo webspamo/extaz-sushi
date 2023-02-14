@@ -17,7 +17,9 @@
         </div>
 
         <div class="section">
-            <div class="item-categories container">
+            <div
+                id="item-categories"
+                class="item-categories container">
                 <ItemsCategory
                     v-for="category in itemCategories"
                     :key="category.id"
