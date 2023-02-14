@@ -1,23 +1,31 @@
 <template>
     <header class="header">
         <nav class="header-navigation">
-            <ul class="navigation-list">
-                <li class="navigation-item">
+            <div class="navigation-list">
+                <a
+                    href="#"
+                    class="navigation-link">
+                    Доставка та оплата
+                </a>
+                <div class="navigation-item">
                     <a
                         href="#"
-                        class="navigation-link">
-                        Доставка та оплата
-                    </a>
-                </li>
-                <li class="navigation-item">
-                    <a
-                        href="#"
-                        class="navigation-link">
+                        class="navigation-link navigation-dropdown">
                         Меню
                         <BaseIcon name="chevron-down"></BaseIcon>
                     </a>
-                </li>
-            </ul>
+                    <nav class="navigation-dropdown-content">
+                        <div
+                            class="navigation-dropdown-link"
+                            v-for="category in itemCategories"
+                            :key="category.id">
+                            <router-link :to="`/${category.id}`">
+                                {{ category.title }}
+                            </router-link>
+                        </div>
+                    </nav>
+                </div>
+            </div>
         </nav>
         <MainLogo></MainLogo>
         <div class="header-additional">
@@ -29,6 +37,7 @@
 
 <script>
 import {useSiteStore} from "../stores/site";
+import {useAssortmentStore} from "../stores/assortment";
 import {mapState} from "pinia";
 
 import BaseIcon from "./BaseIcon.vue";
@@ -48,6 +57,7 @@ export default {
 
     computed: {
         ...mapState(useSiteStore, ["startHours", "endHours"]),
+        ...mapState(useAssortmentStore, ["itemCategories"]),
     },
 };
 </script>
@@ -95,6 +105,28 @@ export default {
                 color: #00b3ff;
                 opacity: 0.9;
             }
+        }
+    }
+    .navigation-dropdown {
+        position: relative;
+        &-content {
+            position: absolute;
+            z-index: 1;
+            min-width: 100%;
+            padding: 1.5rem;
+            display: none;
+            inset: 100% -50%;
+            border-radius: 30px;
+            background-color: lightblue;
+        }
+        &:hover .navigation-dropdown-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        .navigation-dropdown-link {
+            color: white;
         }
     }
 }
