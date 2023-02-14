@@ -8,7 +8,9 @@
 <script>
 export default {
     name: "SocialLinks",
-    data() {},
+    data() {
+        return {};
+    },
 };
 </script>
 <style lang="scss">
