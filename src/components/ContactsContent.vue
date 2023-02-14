@@ -7,10 +7,7 @@
             >{{ contacts.phone }}</a
         >
         <p>{{ contacts.text }}</p>
-        <div class="socials">
-            <div class="social"></div>
-            <div class="social"></div>
-        </div>
+        <SocialLinks />
     </div>
 </template>
 
@@ -18,8 +15,13 @@
 import {mapState} from "pinia";
 import {useSiteStore} from "../stores/site";
 
+import SocialLinks from "./SocialLinks.vue";
+
 export default {
     name: "ContactsContent",
+    components: {
+        SocialLinks,
+    },
     data() {
         return {
             contacts: {
@@ -58,14 +60,4 @@ export default {
 }
 
 // В отдельнй компонент.
-.socials {
-    display: flex;
-    align-items: center;
-    gap: 0.3125rem;
-    .social {
-        width: 25px;
-        height: 25px;
-        border: 1px solid red;
-    }
-}
 </style>

@@ -22,26 +22,25 @@
         <MainLogo></MainLogo>
         <div class="header-additional">
             <div class="opening-hours">{{ startHours }} - {{ endHours }}</div>
-            <div class="socials">
-                <div class="social"></div>
-                <div class="social"></div>
-            </div>
+            <SocialLinks />
         </div>
     </header>
 </template>
 
 <script>
-import BaseIcon from "./BaseIcon.vue";
-import MainLogo from "./MainLogo.vue";
-
 import {useSiteStore} from "../stores/site";
 import {mapState} from "pinia";
+
+import BaseIcon from "./BaseIcon.vue";
+import MainLogo from "./MainLogo.vue";
+import SocialLinks from "./SocialLinks.vue";
 
 export default {
     name: "TheHeader",
     components: {
         BaseIcon,
         MainLogo,
+        SocialLinks,
     },
     data() {
         return {};
@@ -110,18 +109,6 @@ export default {
     align-items: center;
     justify-content: flex-end;
     gap: 1rem;
-
-    // В отдельнй компонент.
-    .socials {
-        display: flex;
-        align-items: center;
-        gap: 0.3125rem;
-        .social {
-            width: 25px;
-            height: 25px;
-            border: 1px solid red;
-        }
-    }
 }
 
 .opening-hours {
