@@ -33,6 +33,7 @@ export default {
 
 .items-category {
     background-size: cover;
+
     border-radius: 50px;
     box-shadow: 0px 4px 8px 4px rgb(0 213 255 / 30%);
 
@@ -42,6 +43,7 @@ export default {
     justify-content: flex-end;
 
     .category-title {
+        color: mixins.$main-text-color;
         font-size: 2.625rem;
         line-height: 1.55;
         text-transform: uppercase;
