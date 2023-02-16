@@ -6,7 +6,7 @@
                     v-for="item in topMenuItems"
                     :key="item.id"
                     :name="item.name"
-                    :image="item.image"
+                    :image="item.defaultImage"
                     :description="item.description"
                     :weight="item.weight"
                     :weight-name="item.weightName"
@@ -57,18 +57,15 @@ export default {
     data() {
         return {
             topMenuItemIds: [
-                "euphoria",
-                "euphoria",
-                "euphoria",
-                "euphoria",
-                "euphoria",
+                "euphoria-roll",
+                "philadelphia-mango-roll",
+                "luxury-roll",
             ],
         };
     },
 
     computed: {
         ...mapState(useAssortmentStore, ["getMenuItemById", "itemCategories"]),
-
         topMenuItems() {
             const items = [];
 
