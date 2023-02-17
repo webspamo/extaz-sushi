@@ -6,101 +6,49 @@ export const useAssortmentStore = defineStore("assortment", {
     state: () => ({
         itemCategories: [
             {
-                id: "classical",
+                id: "classic",
                 title: "Класичні",
-                image: imagesPath + "classical_category-image.jpeg",
-                containedItemsId: [
-                    "philadelphia-roll",
-                    "philadelphia-grill-roll",
-                    "philadelphia-avocado-roll",
-                    "philadelphia-grill-avocado-roll",
-                    "philadelphia-eel-roll",
-                    "philadelphia-shrimp-roll",
-                    "philadelphia-sesam-roll",
-                    "philadelphia-roe-roll",
-                    "maki-roll",
-                    "california-roll",
-                ],
+                image: imagesPath + "classic_category-image.jpeg",
             },
             {
                 id: "specialty",
                 title: "Фірмові",
                 image: imagesPath + "specialty_category-image.jpeg",
-                containedItemsId: [
-                    "luxury-roll",
-                    "philadelphia-mango-roll",
-                    "euphoria-roll",
-                    "unagi-double-maki-roll",
-                    "extaz-roll",
-                    "green-dragon-roll",
-                    "vega-roll",
-                    "green-roll",
-                    "dark-roll",
-                    "kados-roll",
-                ],
             },
             {
                 id: "sets",
                 title: "Сети",
                 image: imagesPath + "sets_category-image.jpeg",
-                containedItemsId: [
-                    "corporate-set",
-                    "salmon-set",
-                    "philadelphia-set",
-                    "firm-set",
-                    "mix-set",
-                    "trio-set",
-                    "baked-set",
-                ],
             },
             {
                 id: "baked",
                 title: "Запечені",
                 image: imagesPath + "baked_category-image.jpeg",
-                containedItemsId: [
-                    "baked-salmon-roll",
-                    "baked-shrimp-roll",
-                    "baked-eel-roll",
-                ],
             },
             {
                 id: "sushi",
                 title: "Суші",
                 image: imagesPath + "sushi_category-image.jpeg",
-                containedItemsId: [
-                    "salmon-sushi",
-                    "salmon-grill-sushi",
-                    "tuna-sushi",
-                    "shrimp-sushi",
-                    "eel-sushi",
-                    "hunkan-sushi",
-                ],
             },
             {
                 id: "adds",
                 title: "Додатки",
                 image: imagesPath + "adds_category-image.jpeg",
-                containedItemsId: [
-                    "soy-sauce-addition",
-                    "ginger-addition",
-                    "wasabi-addition",
-                    "spicy-addition",
-                    "nut-sauce-addition",
-                    "unagi-sauce-addition",
-                    "hiyashi-salad-addition",
-                    "coca-cola-addition",
-                    "coca-cola-zero-addition",
-                    "fanta-addition",
-                    "juice-assortment-addition",
-                    "morshynska-addition",
-                ],
             },
         ],
         menuItems: [
-            //classical
+            //classic
             {
                 id: "philadelphia-roll",
                 name: "Філадельфія рол",
+                type: "roll",
+                category: "classic",
+                inSet: [
+                    "corporate-set",
+                    "salmon-set",
+                    "philadelphia-set",
+                    "trio-set",
+                ],
                 defaultImage: imagesPath + "philadelphia-roll.jpg", //default
                 description:
                     "Лосось або тунець на вибір, крем-сир, огірок, ікра лососева.",
@@ -109,7 +57,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 355,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "salmon",
@@ -131,6 +79,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-grill-roll",
                 name: "Філадельфія гриль",
+                type: "roll",
+                category: "classic",
                 defaultImage: imagesPath + "philadelphia-grill-roll.jpg", //default
                 description: "Обпалений лосось, крем-сир, огірок.",
                 weight: 320,
@@ -141,6 +91,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-avocado-roll",
                 name: "Філадельфія з авокадо",
+                type: "roll",
+                category: "classic",
                 defaultImage: imagesPath + "philadelphia-avocado-roll.jpg", //default
                 description:
                     "Лосось або вугор на вибір, крем-сир, авокадо, ікра лососева.",
@@ -149,7 +101,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 375,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "salmon",
@@ -171,6 +123,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-grill-avocado-roll",
                 name: "Філадельфія Гриль з авокадо",
+                type: "roll",
+                category: "classic",
                 defaultImage:
                     imagesPath + "philadelphia-grill-avocado-roll.jpg", //default
                 description: "Обпалений лосось, крем-сир, авокадо.",
@@ -182,6 +136,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-eel-roll",
                 name: "Філадельфія з вугром",
+                type: "roll",
+                category: "classic",
+                inSet: ["corporate-set", "philadelphia-set"],
                 defaultImage: imagesPath + "philadelphia-eel-roll.jpg", //default
                 description: "Вугор, крем-сир, огірок, ікра лососева.",
                 weight: 330,
@@ -192,6 +149,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-shrimp-roll",
                 name: "Філадельфія з креветкою",
+                type: "roll",
+                category: "classic",
+                inSet: ["corporate-set", "philadelphia-set", "mix-set"],
                 defaultImage: imagesPath + "philadelphia-shrimp-roll.jpg", //default
                 description: "Креветки, крем-сир, огірок, ікра лососева.",
                 weight: 330,
@@ -202,6 +162,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-sesam-roll",
                 name: "Філадельфія в кунжуті",
+                type: "roll",
+                category: "classic",
+                inSet: ["trio-set"],
                 defaultImage: imagesPath + "philadelphia-sesam-roll.jpg", //default
                 description:
                     "Лосось або вугор на вибір, крем-сир, авокадо, огірок, кунжут.",
@@ -210,7 +173,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 275,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "salmon",
@@ -233,6 +196,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-roe-roll",
                 name: "Філадельфія в ікрі",
+                type: "roll",
+                category: "classic",
                 defaultImage: imagesPath + "philadelphia-roe-roll.jpg", //default
                 description: "Риба на вибір, крем-сир, огірок, ікра тобіко.",
                 weight: 320,
@@ -240,7 +205,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 365,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "salmon",
@@ -270,6 +235,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "maki-roll",
                 name: "Макі рол",
+                type: "roll",
+                category: "classic",
+                inSet: ["mix-set"],
                 defaultImage: imagesPath + "maki-roll.jpg", //default
                 description: "Риба на вибір.",
                 weight: 120,
@@ -277,7 +245,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 140,
                 currency: "uah",
                 addons: {
-                    name: "Інгредієнт",
+                    title: "Інгредієнт",
                     items: [
                         {
                             id: "salmon",
@@ -327,6 +295,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "california-roll",
                 name: "Каліфорнія",
+                type: "roll",
+                category: "classic",
+                inSet: ["philadelphia-set"],
                 defaultImage: imagesPath + "california-roll.jpg", //default
                 description: "Риба на вибір, авокадо, огірок, ікра тобіко.",
                 weight: 300,
@@ -334,7 +305,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 425,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "salmon",
@@ -364,6 +335,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "luxury-roll",
                 name: "Люксовий рол",
+                type: "roll",
+                category: "specialty",
+                inSet: ["corporate-set", "firm-set", "mix-set"],
                 defaultImage: imagesPath + "luxury-roll.jpg", //default
                 description:
                     "Риба на вибір, крем-сир, крабовий мікс, креветки, огірок, шрірача.",
@@ -372,7 +346,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 360,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "tuna",
@@ -394,6 +368,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-mango-roll",
                 name: "Філадельфія з манго",
+                type: "roll",
+                category: "specialty",
+                inSet: ["corporate-set", "firm-set"],
                 defaultImage: imagesPath + "philadelphia-mango-roll.jpg", //default
                 description: "Лосось, манго, крем-сир.",
                 weight: 310,
@@ -401,7 +378,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 360,
                 currency: "uah",
                 addons: {
-                    name: "Обрати",
+                    title: "Обрати",
                     items: [
                         {
                             id: "standart",
@@ -423,6 +400,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "euphoria-roll",
                 name: "Ейфорія рол",
+                type: "roll",
+                category: "specialty",
+                inSet: ["corporate-set"],
                 defaultImage: imagesPath + "euphoria-roll.jpg", //default
                 description:
                     "Обпалений, карамелізований унагі соусом лосось, креветка, ікра тобіко, авокадо.",
@@ -434,6 +414,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "unagi-double-maki-roll",
                 name: "Унагі Дабл макі",
+                type: "roll",
+                category: "specialty",
+                inSet: ["corporate-set", "mix-set"],
                 defaultImage: imagesPath + "unagi-double-maki-roll.jpg", //default
                 description:
                     "Вугор, крем-сир, огірок, унагі, ікра тобіко, кунжут.",
@@ -445,6 +428,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "extaz-roll",
                 name: "Екстаз рол",
+                type: "roll",
+                category: "specialty",
+                inSet: ["corporate-set", "firm-set"],
                 defaultImage: imagesPath + "extaz-roll.jpg", //default
                 description:
                     "Креветки, крем-сир, огірок, крабовий мікс, лосось, вялений томат, фірмовий соус.",
@@ -453,7 +439,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 335,
                 currency: "uah",
                 addons: {
-                    name: "Інгредієнт",
+                    title: "Інгредієнт",
                     items: [
                         {
                             id: "salmon",
@@ -475,6 +461,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "green-dragon-roll",
                 name: "Зелений дракон",
+                type: "roll",
+                category: "specialty",
+                inSet: ["firm-set"],
                 defaultImage: imagesPath + "green-dragon-roll.jpg", //default
                 description:
                     "Вугор, крем-сир, авокадо, шрірача, ікра тобіко, унагі, кунжут.",
@@ -486,6 +475,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "vega-roll",
                 name: "Вега рол",
+                type: "roll",
+                category: "specialty",
                 defaultImage: imagesPath + "vega-roll.jpg", //default
                 description: "Авокадо, вялений томат, хіяші, огірок.",
                 weight: 275,
@@ -496,6 +487,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "green-roll",
                 name: "Грін рол",
+                type: "roll",
+                category: "specialty",
+                inSet: ["trio-set"],
                 defaultImage: imagesPath + "green-roll.jpg", //default
                 description: "Лосось, авокадо, крабовий мікс.",
                 weight: 295,
@@ -506,6 +500,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "dark-roll",
                 name: "Д`Арк рол",
+                type: "roll",
+                category: "specialty",
                 defaultImage: imagesPath + "dark-roll.jpg", //default
                 description:
                     "Вугор, тунець, крабовий мікс, авокадо, ікра тобіко, унагі, кунжут. ",
@@ -517,6 +513,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "kados-roll",
                 name: "Кадос рол",
+                type: "roll",
+                category: "specialty",
                 defaultImage: imagesPath + "kados-roll.jpg", //default
                 description:
                     "Тунець, хіяші, цибуля, огірок, фірмовий соус, горіховий соус, кунжут, ікра тобіко.",
@@ -529,6 +527,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "corporate-set",
                 name: "Корпоративний сет",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "corporate-set.png", //default
                 description: "9 ролів, 72 шматочки.",
                 containedItemsId: [],
@@ -540,6 +540,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "salmon-set",
                 name: "Сет Лосось",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "salmon-set.jpg", //default
                 containedItemsId: [],
                 weight: 710,
@@ -550,6 +552,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "philadelphia-set",
                 name: "Філадельфія сет",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "philadelphia-set.jpg", //default
                 containedItemsId: [],
                 weight: 990,
@@ -560,6 +564,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "firm-set",
                 name: "Фірмовий сет",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "firm-set.jpg", //default
                 containedItemsId: [],
                 weight: 1250,
@@ -570,6 +576,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "mix-set",
                 name: "Мікс сет",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "mix-set.jpg", //default
                 containedItemsId: [],
                 weight: 1050,
@@ -580,6 +588,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "trio-set",
                 name: "Тріо сет",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "trio-set.jpg", //default
                 containedItemsId: [],
                 weight: 900,
@@ -590,6 +600,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "baked-set",
                 name: "Запечений сет",
+                type: "set",
+                category: "sets",
                 defaultImage: imagesPath + "baked-set.jpg", //default
                 containedItemsId: [],
                 weight: 1050,
@@ -601,6 +613,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "baked-salmon-roll",
                 name: "Запечений рол з лососем",
+                type: "roll",
+                category: "baked",
+                inSet: ["corporate-set", "baked"],
                 defaultImage: imagesPath + "baked-salmon-roll.jpg", //default
                 description:
                     "Лосось, крем-сир, авокадо, ікра тобіко, сирна шапочка.",
@@ -612,6 +627,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "baked-shrimp-roll",
                 name: "Запечений рол з креветкою",
+                type: "roll",
+                category: "baked",
+                inSet: ["baked"],
                 defaultImage: imagesPath + "baked-shrimp-roll.jpg", //default
                 description:
                     "Креветка, крем-сир, авокадо, ікра тобіко, сирна шапочка.",
@@ -623,6 +641,9 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "baked-eel-roll",
                 name: "Запечений рол з вугром",
+                type: "roll",
+                category: "baked",
+                inSet: ["baked"],
                 defaultImage: imagesPath + "baked-eel-roll.jpg", //default
                 description: "Вугор, крем-сир, авокадо, кунжут, сирна шапочка.",
                 weight: 340,
@@ -630,10 +651,13 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 390,
                 currency: "uah",
             },
-            //susuhi
+            //sushi
             {
                 id: "salmon-sushi",
                 name: "Суші з лососем",
+                type: "sushi",
+                category: "sushi",
+                inSet: ["salmon-set"],
                 defaultImage: imagesPath + "salmon-sushi.jpg", //default
                 weight: 40,
                 weightName: "grams",
@@ -643,6 +667,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "salmon-grill-sushi",
                 name: "Суші з лососем гриль",
+                type: "sushi",
+                category: "sushi",
                 defaultImage: imagesPath + "salmon-grill-sushi.jpg", //default
                 weight: 40,
                 weightName: "grams",
@@ -652,6 +678,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "tuna-sushi",
                 name: "Суші з тунцем",
+                type: "sushi",
+                category: "sushi",
                 defaultImage: imagesPath + "tuna-sushi.jpg", //default
                 weight: 40,
                 weightName: "grams",
@@ -661,6 +689,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "shrimp-sushi",
                 name: "Суші з креветкою",
+                type: "sushi",
+                category: "sushi",
                 defaultImage: imagesPath + "shrimp-sushi.jpg", //default
                 weight: 40,
                 weightName: "grams",
@@ -670,6 +700,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "eel-sushi",
                 name: "Суші з вугром",
+                type: "sushi",
+                category: "sushi",
                 defaultImage: imagesPath + "eel-sushi.jpg", //default
                 weight: 40,
                 weightName: "grams",
@@ -679,6 +711,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "hunkan-sushi",
                 name: "Гункан",
+                type: "hunkan",
+                category: "sushi",
                 defaultImage: imagesPath + "hunkan-sushi.jpg", //default
                 description:
                     "Риба на вибір, ікра тобіко, шрірача, японський майонез.",
@@ -687,7 +721,7 @@ export const useAssortmentStore = defineStore("assortment", {
                 price: 90,
                 currency: "uah",
                 addons: {
-                    name: "Риба",
+                    title: "Риба",
                     items: [
                         {
                             id: "salmon",
@@ -720,6 +754,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "soy-sauce-addition",
                 name: "Соєвий соус",
+                type: "sauce",
+                category: "adds",
                 defaultImage: imagesPath + "soy-sauce-addition.jpg", //default
                 weight: 50,
                 weightName: "grams",
@@ -729,6 +765,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "ginger-addition",
                 name: "Імбир",
+                type: "addition",
+                category: "adds",
                 defaultImage: imagesPath + "ginger-addition.jpg", //default
                 weight: 20,
                 weightName: "grams",
@@ -738,6 +776,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "wasabi-addition",
                 name: "Васабі",
+                type: "addition",
+                category: "adds",
                 defaultImage: imagesPath + "wasabi-addition.jpg", //default
                 weight: 10,
                 weightName: "grams",
@@ -745,9 +785,11 @@ export const useAssortmentStore = defineStore("assortment", {
                 currency: "uah",
             },
             {
-                id: "spicy-addition",
+                id: "spicy-sauce-addition",
                 name: "Спайсі соус",
-                defaultImage: imagesPath + "spicy-addition.jpg", //default
+                type: "sauce",
+                category: "adds",
+                defaultImage: imagesPath + "spicy-sauce-addition.jpg", //default
                 weight: 30,
                 weightName: "grams",
                 price: 25,
@@ -756,6 +798,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "nut-sauce-addition",
                 name: "Горіховий соус",
+                type: "sauce",
+                category: "adds",
                 defaultImage: imagesPath + "nut-sauce-addition.jpg", //default
                 weight: 30,
                 weightName: "grams",
@@ -765,6 +809,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "unagi-sauce-addition",
                 name: "Унагі соус",
+                type: "sauce",
+                category: "adds",
                 defaultImage: imagesPath + "unagi-sauce-addition.jpg", //default
                 weight: 30,
                 weightName: "grams",
@@ -774,6 +820,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "hiyashi-salad-addition",
                 name: "Хіяші салат",
+                type: "salad",
+                category: "adds",
                 defaultImage: imagesPath + "hiyashi-salad-addition.jpg", //default
                 weight: 120,
                 weightName: "grams",
@@ -783,6 +831,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "coca-cola-addition",
                 name: "Кола",
+                type: "drinks",
+                category: "adds",
                 defaultImage: imagesPath + "coca-cola-addition.png", //default
                 weight: 0.5,
                 weightName: "liters",
@@ -792,6 +842,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "coca-cola-zero-addition",
                 name: "Кола Зеро",
+                type: "drinks",
+                category: "adds",
                 defaultImage: imagesPath + "coca-cola-zero-addition.png", //default
                 weight: 0.5,
                 weightName: "liters",
@@ -801,6 +853,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "fanta-addition",
                 name: "Фанта",
+                type: "drinks",
+                category: "adds",
                 defaultImage: imagesPath + "fanta-addition.png", //default
                 weight: 0.5,
                 weightName: "liters",
@@ -810,6 +864,8 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "juice-assortment-addition",
                 name: "Сік",
+                type: "drinks",
+                category: "adds",
                 defaultImage: imagesPath + "juice-assortment-addition.png", //default
                 description: "в асортименті",
                 weight: 1,
@@ -820,13 +876,15 @@ export const useAssortmentStore = defineStore("assortment", {
             {
                 id: "morshynska-addition",
                 name: "Моршинська",
+                type: "drinks",
+                category: "adds",
                 defaultImage: imagesPath + "morshynska-addition.png", //default
                 weight: 0.5,
                 weightName: "liters",
                 price: 25,
                 currency: "uah",
                 addons: {
-                    name: "Обрати",
+                    title: "Обрати",
                     items: [
                         {
                             id: "light-sparkling",
@@ -849,6 +907,13 @@ export const useAssortmentStore = defineStore("assortment", {
         getMenuItemById: (state) => {
             return (itemId) =>
                 state.menuItems.find((item) => item.id === itemId);
+        },
+        getMenuItemsByCategory: (state) => {
+            return function (category) {
+                return state.menuItems.filter(
+                    (item) => item.category === category
+                );
+            };
         },
         getAllId: (state) => {
             return state.menuItems.map((e) => e.id);
