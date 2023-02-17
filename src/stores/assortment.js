@@ -908,6 +908,13 @@ export const useAssortmentStore = defineStore("assortment", {
             return (itemId) =>
                 state.menuItems.find((item) => item.id === itemId);
         },
+        getCategoryById: (state) => {
+            return function (categoryId) {
+                return state.itemCategories.find(
+                    (category) => category.id === categoryId
+                );
+            };
+        },
         getMenuItemsByCategory: (state) => {
             return function (category) {
                 return state.menuItems.filter(
