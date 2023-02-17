@@ -102,7 +102,7 @@ export default {
         }
 
         .navigation-link {
-            transition: color 250ms ease-in-out, opacity 250ms ease-in-out;
+            transition: color 150ms ease-in-out, opacity 150ms ease-in-out;
 
             display: flex;
             align-items: center;
@@ -131,7 +131,7 @@ export default {
             opacity: 0;
             pointer-events: none;
             transform: translateY(-5%);
-            transition: opacity 500ms ease-in-out, transform 500ms ease-in-out;
+            transition: opacity 250ms ease-in-out, transform 250ms ease-in-out;
 
             display: flex;
             flex-direction: column;
