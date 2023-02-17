@@ -1,6 +1,13 @@
 <template>
     <main>
         <div class="section">
+            <div class="headings container">
+                <h1 class="hero-title">Топові позиції</h1>
+                <p class="hero-subtitle">Для максимальної насолоди</p>
+            </div>
+        </div>
+
+        <div class="section">
             <div class="menu-items container">
                 <MenuItem
                     v-for="item in topMenuItems"
@@ -38,13 +45,13 @@
 </template>
 
 <script>
+import {mapState} from "pinia";
+import {useAssortmentStore} from "@/stores/assortment";
+
 import MenuItem from "../components/MenuItem.vue";
 import ItemsCategory from "../components/ItemsCategory.vue";
 import InfoContent from "../components/InfoContent.vue";
 import ContactsContent from "../components/ContactsContent.vue";
-
-import {mapState} from "pinia";
-import {useAssortmentStore} from "@/stores/assortment";
 
 export default {
     name: "HomePage",
@@ -85,16 +92,6 @@ export default {
 
 <style lang="scss" scoped>
 @use "@/assets/styles/_mixins";
-.menu-items {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2.5rem;
-
-    .menu-item {
-        width: 100%;
-    }
-}
 
 .item-categories {
     display: grid;
