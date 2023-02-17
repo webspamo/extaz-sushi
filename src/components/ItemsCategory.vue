@@ -50,8 +50,8 @@ export default {
     }
 }
 
-// .classical {
-//     grid-area: classical;
+// .classic {
+//     grid-area: classic;
 // }
 // .specialty {
 //     grid-area: specialty;

@@ -1,7 +1,7 @@
 import {createRouter, createWebHashHistory} from "vue-router";
 
 import HomePage from "@/views/HomePage.vue";
-import ClassicalPage from "@/views/ClassicalPage.vue";
+import ClassicPage from "@/views/ClassicPage.vue";
 import SpecialtyPage from "@/views/SpecialtyPage.vue";
 import SetsPage from "@/views/SetsPage.vue";
 import SushiPage from "@/views/SushiPage.vue";
@@ -16,8 +16,8 @@ export default createRouter({
             component: HomePage,
         },
         {
-            path: "/classical",
-            component: ClassicalPage,
+            path: "/classic",
+            component: ClassicPage,
         },
         {
             path: "/specialty",

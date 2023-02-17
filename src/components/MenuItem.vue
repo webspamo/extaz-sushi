@@ -16,7 +16,7 @@
         <div class="item-footer">
             <div class="item-addons">
                 <label v-if="addons">
-                    {{ addons.name }}
+                    {{ addons.title }}
                     <select v-model="selectedAddonId">
                         <option
                             v-for="addon in addons.items"
