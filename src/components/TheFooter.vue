@@ -10,22 +10,48 @@
 
         <div class="bottom-row">
             <div class="copyright">© 2023 Extaz Sushi</div>
-            <div class="socials"></div>
+            <div class="socials">
+                <SocialLinks
+                    v-for="link in socialLinks"
+                    :key="link.socialMedia"
+                    :href="link.href"
+                    :icon-src="link.iconSrc"
+                    :icon-alt:="link.iconAlt" />
+            </div>
+
             <div class="to-top">Нагору ↑</div>
         </div>
     </footer>
 </template>
 
 <script>
-import MainLogo from "@/components/MainLogo.vue";
+import {mapState} from "pinia";
+import {useSiteStore} from "@/stores/site";
+
+import MainLogo from "./MainLogo.vue";
+import SocialLinks from "./SocialLinks.vue";
 
 export default {
     name: "TheFooter",
-    components: { MainLogo }
-}
+    components: {MainLogo, SocialLinks},
+    data() {
+        return {
+            iconType: "round",
+        };
+    },
+    computed: {
+        ...mapState(useSiteStore, ["getSocialLinksByIconsType"]),
+        socialLinks() {
+            return this.getSocialLinksByIconsType("round");
+        },
+    },
+    created() {
+        console.log(this.socialLinks);
+    },
+};
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "@/assets/styles/_mixins";
 
 footer {
@@ -100,7 +126,7 @@ footer {
 
         padding: 0 3rem;
 
-        &>* {
+        & > * {
             flex-grow: 1;
             flex-basis: 0;
         }
@@ -136,6 +162,13 @@ footer {
 
             padding: 1rem;
             border: 1px solid red;
+
+            .social-link {
+                //  in Component
+                width: 2rem;
+                height: 2rem;
+                color: mixins.$main-accent;
+            }
         }
 
         .to-top {

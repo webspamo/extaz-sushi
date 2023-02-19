@@ -1,27 +1,28 @@
 <template>
-    <div class="socials">
-        <a class="social-link"></a>
-        <a class="social-link"></a>
-    </div>
+    <a
+        class="social-link"
+        :href="href">
+        <img
+            :src="iconSrc"
+            :alt="iconAlt" />
+    </a>
 </template>
 
 <script>
 export default {
     name: "SocialLinks",
+    props: {
+        href: String,
+        iconSrc: String,
+        iconAlt: String,
+    },
     data() {
         return {};
     },
 };
 </script>
 <style lang="scss">
-.socials {
-    display: flex;
-    align-items: center;
-    gap: 0.3125rem;
-    .social-link {
-        width: 25px;
-        height: 25px;
-        border: 1px solid red;
-    }
+.social-link {
+    border: 1px solid red;
 }
 </style>
