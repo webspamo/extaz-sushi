@@ -12,6 +12,7 @@
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.1.96",
     "@mdi/light-js": "^0.2.63",
+    "nvm": "^0.0.4",
     "pinia": "^2.0.30",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
