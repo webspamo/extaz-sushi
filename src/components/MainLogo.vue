@@ -1,7 +1,8 @@
 <template>
     <div class="logo-wrapper">
         <a href="">
-            <img :src="image"
+            <img
+                :src="image"
                 alt="Extazsushi main logo"
                 class="logo-img" />
         </a>
@@ -9,8 +10,8 @@
 </template>
 
 <script>
-import HorizontalLogo from "@/assets/images/extazsushi_logo.svg";
-import VerticalLogo from "@/assets/images/extazsushi_logo_vertical.svg";
+import HorizontalLogo from "@/assets/icons/extazsushi_logo.svg";
+import VerticalLogo from "@/assets/icons/extazsushi_logo_vertical.svg";
 
 export default {
     name: "MainLogo",
@@ -18,30 +19,31 @@ export default {
         orientation: {
             type: String,
             default: "horizontal",
-            enum: ["horizontal", "vertical"]
-        }
+            enum: ["horizontal", "vertical"],
+        },
     },
     data() {
         return {
             images: {
-                "horizontal": HorizontalLogo,
-                "vertical": VerticalLogo
-            }
+                horizontal: HorizontalLogo,
+                vertical: VerticalLogo,
+            },
         };
     },
     computed: {
         image() {
             return this.images[this.orientation];
-        }
+        },
     },
 };
 </script>
 
 <style lang="scss">
-.logo-wrapper {}
+.logo-wrapper {
+}
 
 .logo-img {
     height: auto;
-    width: 160px;
+    width: 10rem;
 }
 </style>
