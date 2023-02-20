@@ -1,14 +1,20 @@
 @use "_mixins";
 
-// @font-face {
-//     font-family: "";
-//     src: url('./../fonts/Proxima-Nova-Bold.otf');
-// }
+@font-face {
+    font-family: "MazzardH";
+    src: url("../fonts/MazzardH-ExtraLight.otf");
+    src: url("../fonts/MazzardH-Light.ttf");
+    src: url("../fonts/MazzardH-Regular.ttf");
+    src: url("../fonts/MazzardH-Black.otf");
+    src: url("../fonts/MazzardH-Bold.woff");
+    src: url("../fonts/MazzardH-ExtraBold.otf");
+}
 
 body {
     padding: 0;
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "MazzardH", sans-serif;
+    -webkit-font-smoothing: antialiased;
     color: mixins.$main-text-color;
     background-color: black;
 }
