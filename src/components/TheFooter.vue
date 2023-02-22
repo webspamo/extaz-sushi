@@ -10,13 +10,22 @@
 
         <div class="bottom-row">
             <div class="copyright">© 2023 Extaz Sushi</div>
-            <div class="socials">
-                <SocialLinks
-                    v-for="link in socialLinks"
-                    :key="link.socialMedia"
-                    :href="link.href"
-                    :icon-src="link.iconSrc"
-                    :icon-alt:="link.iconAlt" />
+
+            <div class="social">
+                <a
+                    class="social-link"
+                    href="#">
+                    <SvgCustomIcon
+                        class="social-icon"
+                        name="round-facebook" />
+                </a>
+                <a
+                    class="social-link"
+                    href="#">
+                    <SvgCustomIcon
+                        class="social-icon"
+                        name="round-instagram" />
+                </a>
             </div>
 
             <div class="to-top">Нагору ↑</div>
@@ -29,24 +38,17 @@ import {mapState} from "pinia";
 import {useSiteStore} from "@/stores/site";
 
 import MainLogo from "./MainLogo.vue";
-import SocialLinks from "./SocialLinks.vue";
+
+import SvgCustomIcon from "./SvgCustomIcon.vue";
 
 export default {
     name: "TheFooter",
-    components: {MainLogo, SocialLinks},
+    components: {
+        MainLogo,
+        SvgCustomIcon,
+    },
     data() {
-        return {
-            iconType: "round",
-        };
-    },
-    computed: {
-        ...mapState(useSiteStore, ["getSocialLinksByIconsType"]),
-        socialLinks() {
-            return this.getSocialLinksByIconsType("round");
-        },
-    },
-    created() {
-        console.log(this.socialLinks);
+        return {};
     },
 };
 </script>
@@ -115,66 +117,56 @@ footer {
             }
         }
     }
+}
+.bottom-row {
+    margin-top: 4rem;
 
-    .bottom-row {
-        margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
 
+    padding: 0 3rem;
+
+    & > * {
+        flex-grow: 1;
+        flex-basis: 0;
+    }
+
+    @include mixins.below(sm) {
+        flex-direction: column;
+
+        .social {
+            order: 1;
+        }
+
+        .copyright {
+            order: 2;
+        }
+
+        .to-top {
+            order: 3;
+        }
+    }
+
+    .copyright,
+    .to-top {
+        color: mixins.$main-accent;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .social {
+        &-icon {
+            width: 2rem;
+            height: 2rem;
+            fill: mixins.$main-accent;
+        }
+    }
+
+    .to-top {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1rem;
-
-        padding: 0 3rem;
-
-        & > * {
-            flex-grow: 1;
-            flex-basis: 0;
-        }
-
-        @include mixins.below(sm) {
-            flex-direction: column;
-
-            .socials {
-                order: 1;
-            }
-
-            .copyright {
-                order: 2;
-            }
-
-            .to-top {
-                order: 3;
-            }
-        }
-
-        .copyright,
-        .to-top {
-            color: mixins.$main-accent;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .socials {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3125rem;
-
-            padding: 1rem;
-            border: 1px solid red;
-
-            .social-link {
-                //  in Component
-                width: 2rem;
-                height: 2rem;
-                color: mixins.$main-accent;
-            }
-        }
-
-        .to-top {
-            display: flex;
-            justify-content: flex-end;
-        }
+        justify-content: flex-end;
     }
 }
 </style>

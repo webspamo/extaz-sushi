@@ -4,9 +4,9 @@
             class="info-card"
             v-for="card in cards"
             :key="card.id">
-            <img
-                :src="card.imagePath"
-                :alt="card.imageAlt" />
+            <SvgCustomIcon
+                class="card-icon"
+                :name="card.iconName" />
             <h3 class="card-titile">
                 {{ card.title }}
             </h3>
@@ -21,8 +21,13 @@
 import {mapState} from "pinia";
 import {useSiteStore} from "../stores/site";
 
+import SvgCustomIcon from "./SvgCustomIcon.vue";
+
 export default {
     name: "InfoContent",
+    components: {
+        SvgCustomIcon,
+    },
     data() {
         return {
             workingStartHours: null,
@@ -32,6 +37,7 @@ export default {
                     id: "deliveryInfo",
                     title: "Доставимо",
                     text: "до дверей ~60хв безкоштовно по Печерському р-ну +10 грн за кожен наступний км",
+                    iconName: "delivery",
                     imagePath: "/src/assets/icons/delivery-icon.svg",
                     imageAlt: "Delivery outline image",
                 },
@@ -39,6 +45,7 @@ export default {
                     id: "toGoInfo",
                     title: "Самовиніс",
                     text: "Печерський район, вул. Іоанна Павла || 7 Тільки за попереднім замовленням",
+                    iconName: "location",
                     imagePath: "/src/assets/icons/to-go-icon.svg",
                     imageAlt: "Map point outline image",
                 },
@@ -46,6 +53,7 @@ export default {
                     id: "paymentInfo",
                     title: "Сплачуй зручно",
                     text: "готівкою при отриманні карткою на сайті",
+                    iconName: "payment",
                     imagePath: "/src/assets/icons/payment-icon.svg",
                     imageAlt: "Payment type outline image",
                 },
@@ -53,6 +61,7 @@ export default {
                     id: "workingHoursInfo",
                     title: "Працюємо",
                     text: `щодня з ${this.workingStartHours} до ${this.workingEndHours}`,
+                    iconName: "hours",
                     imagePath: "/src/assets/icons/clock-icon.svg",
                     imageAlt: "Clock outline image",
                 },
@@ -90,5 +99,10 @@ export default {
 .card-titile {
     text-transform: uppercase;
     font-size: 1.875rem;
+}
+.card-icon {
+    width: 6.25rem;
+    height: 6.25rem;
+    fill: mixins.$main-accent;
 }
 </style>

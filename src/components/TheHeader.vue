@@ -33,7 +33,22 @@
         <MainLogo></MainLogo>
         <div class="header-additional">
             <div class="opening-hours">{{ startHours }} - {{ endHours }}</div>
-            <SocialLinks />
+            <div class="social">
+                <a
+                    class="social-link"
+                    href="#">
+                    <SvgCustomIcon
+                        class="social-icon"
+                        name="round-facebook" />
+                </a>
+                <a
+                    class="social-link"
+                    href="#">
+                    <SvgCustomIcon
+                        class="social-icon"
+                        name="round-instagram" />
+                </a>
+            </div>
         </div>
     </header>
 </template>
@@ -45,14 +60,14 @@ import {mapState} from "pinia";
 
 import BaseIcon from "./BaseIcon.vue";
 import MainLogo from "./MainLogo.vue";
-import SocialLinks from "./SocialLinks.vue";
+import SvgCustomIcon from "./SvgCustomIcon.vue";
 
 export default {
     name: "TheHeader",
     components: {
         BaseIcon,
         MainLogo,
-        SocialLinks,
+        SvgCustomIcon,
     },
     data() {
         return {
@@ -181,5 +196,12 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.social {
+    &-icon {
+        width: 2rem;
+        height: 2rem;
+        fill: white;
+    }
 }
 </style>

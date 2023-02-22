@@ -7,7 +7,23 @@
             >{{ contacts.phone }}</a
         >
         <p>{{ contacts.text }}</p>
-        <SocialLinks />
+
+        <div class="social">
+            <a
+                class="social-link"
+                href="#">
+                <SvgCustomIcon
+                    class="social-icon"
+                    name="outline-facebook" />
+            </a>
+            <a
+                class="social-link"
+                href="#">
+                <SvgCustomIcon
+                    class="social-icon"
+                    name="outline-instagram" />
+            </a>
+        </div>
     </div>
 </template>
 
@@ -15,12 +31,12 @@
 import {mapState} from "pinia";
 import {useSiteStore} from "../stores/site";
 
-import SocialLinks from "./SocialLinks.vue";
+import SvgCustomIcon from "./SvgCustomIcon.vue";
 
 export default {
     name: "ContactsContent",
     components: {
-        SocialLinks,
+        SvgCustomIcon,
     },
     data() {
         return {
@@ -59,5 +75,11 @@ export default {
     line-height: 1.23;
 }
 
-// В отдельнй компонент.
+.social {
+    &-icon {
+        width: 2rem;
+        height: 2rem;
+        fill: mixins.$main-accent;
+    }
+}
 </style>
