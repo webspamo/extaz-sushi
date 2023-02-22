@@ -127,8 +127,9 @@ export default {
         padding: 1.5em;
 
         .item-name {
-            font-size: 1.1rem;
+            font-size: 1.25rem;
             font-weight: 700;
+            line-height: 1.35;
             text-align: center;
             text-transform: uppercase;
             color: mixins.$main-accent;

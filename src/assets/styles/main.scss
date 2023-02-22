@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: "MazzardH";
-    src: url("../fonts/MazzardH-ExtraLight.otf");
-    src: url("../fonts/MazzardH-Light.ttf");
-    src: url("../fonts/MazzardH-Regular.ttf");
-    src: url("../fonts/MazzardH-Black.otf");
+    src: url("../fonts/MazzardH-ExtraLight.woff");
+    src: url("../fonts/MazzardH-Light.woff");
+    src: url("../fonts/MazzardH-Regular.woff");
+    src: url("../fonts/MazzardH-Black.woff");
     src: url("../fonts/MazzardH-Bold.woff");
-    src: url("../fonts/MazzardH-ExtraBold.otf");
+    src: url("../fonts/MazzardH-ExtraBold.woff");
 }
 
 body {
@@ -42,6 +42,13 @@ body {
     .menu-item {
         width: 100%;
     }
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
 }
 
 h1,
