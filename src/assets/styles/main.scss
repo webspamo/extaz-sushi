@@ -3,18 +3,49 @@
 @font-face {
     font-family: "MazzardH";
     src: url("../fonts/MazzardH-ExtraLight.woff");
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: "MazzardH";
     src: url("../fonts/MazzardH-Light.woff");
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "MazzardH";
     src: url("../fonts/MazzardH-Regular.woff");
-    src: url("../fonts/MazzardH-Black.woff");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "MazzardH";
     src: url("../fonts/MazzardH-Bold.woff");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "MazzardH";
     src: url("../fonts/MazzardH-ExtraBold.woff");
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: "MazzardH";
+    src: url("../fonts/MazzardH-Black.woff");
+    font-weight: 900;
+}
+
+html {
+    //font-size: 20px;
 }
 
 body {
     padding: 0;
     margin: 0;
-    font-family: "MazzardH", sans-serif;
+    font-family: "MazzardH", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: mixins.$main-text-color;
     background-color: black;
 }
@@ -38,10 +69,6 @@ body {
     justify-content: center;
     flex-wrap: wrap;
     gap: 2.5rem;
-
-    .menu-item {
-        width: 100%;
-    }
 }
 
 .social {
