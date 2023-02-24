@@ -2,7 +2,7 @@
     <main>
         <div class="section">
             <div class="headings container">
-                <h1 class="hero-title">{{ category.title }} роли</h1>
+                <h1 class="main-title">{{ category.title }} роли</h1>
             </div>
         </div>
 

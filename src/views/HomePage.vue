@@ -2,8 +2,8 @@
     <main>
         <div class="section">
             <div class="headings container">
-                <h1 class="hero-title">Топові позиції</h1>
-                <p class="hero-subtitle">Для максимальної насолоди</p>
+                <h1 class="main-title">Топові позиції</h1>
+                <p class="main-subtitle">Для максимальної насолоди</p>
             </div>
         </div>
 

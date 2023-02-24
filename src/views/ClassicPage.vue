@@ -2,8 +2,8 @@
     <main>
         <div class="section">
             <div class="headings container">
-                <h1 class="hero-title">{{ category.title }} роли</h1>
-                <p class="hero-subtitle">ФІЛАДЕЛЬФІЯ, КАЛІФОРНІЯ, МАКІ</p>
+                <h1 class="main-title">{{ category.title }} роли</h1>
+                <p class="main-subtitle">ФІЛАДЕЛЬФІЯ, КАЛІФОРНІЯ, МАКІ</p>
             </div>
         </div>
 

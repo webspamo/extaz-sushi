@@ -2,8 +2,8 @@
     <main>
         <div class="section">
             <div class="headings container">
-                <h1 class="hero-title">{{ category.title }}</h1>
-                <p class="hero-subtitle">
+                <h1 class="main-title">{{ category.title }}</h1>
+                <p class="main-subtitle">
                     НАБОРИ НА ДВОХ ТА НА ВЕЛИКУ КОМПАНІЮ
                 </p>
             </div>
