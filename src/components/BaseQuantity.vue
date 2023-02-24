@@ -60,10 +60,11 @@ export default {
     justify-content: space-evenly;
 
     &-button {
+        position: relative;
+        display: flex;
+        align-items: center;
         color: black;
         background-color: transparent;
-
-        position: relative;
 
         &:first-child,
         &:last-child {

@@ -1,19 +1,23 @@
 <template>
     <div class="menu-item">
-        <div class="item-image">
+        <div class="item-image-container">
             <img
                 :src="image"
-                alt="" />
+                alt=""
+                class="item-image" />
         </div>
-        <div class="item-details">
-            <div class="item-name">{{ name }}</div>
-            <div class="item-description">{{ description }}</div>
-            <div class="item-weight">
-                {{ weightWithAddons }}{{ weightName }}
+        <div class="item-content-container">
+            <div class="item-details">
+                <div class="item-name">{{ name }}</div>
+                <div class="item-description">{{ description }}</div>
+                <div class="item-weight">
+                    {{ weightWithAddons }}{{ weightName }}
+                </div>
+                <div class="item-price">
+                    {{ priceWithAddons }} {{ currency }}
+                </div>
             </div>
-            <div class="item-price">{{ priceWithAddons }} {{ currency }}</div>
-        </div>
-        <div class="item-footer">
+
             <div class="item-addons">
                 <label v-if="addons">
                     {{ addons.title }}
@@ -111,20 +115,34 @@ export default {
 @use "@/assets/styles/_mixins";
 
 .menu-item {
-    border-radius: 30px;
+    width: 360px;
+    border-radius: 50px;
     background-color: #01161a;
     overflow: hidden;
 
-    max-width: 350px;
+    .item-image-container {
+        width: 360px;
+        height: 300px;
 
-    .item-image {
-        img {
-            max-width: 100%;
+        .item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 
+    .item-content-container {
+        padding: 1.5625rem;
+
+        display: grid;
+        grid-template-rows: 165px 3.125rem 3.125rem;
+        row-gap: 20px;
+    }
+
     .item-details {
-        padding: 1.5em;
+        display: grid;
+        grid-template-rows: 1fr 3fr 0.875rem 1.25rem;
+        row-gap: 10px;
 
         .item-name {
             font-size: 1.25rem;
@@ -137,68 +155,71 @@ export default {
 
         .item-description,
         .item-weight {
-            margin-top: 1rem;
-            font-size: 0.8rem;
             text-align: center;
+        }
+        .item-description {
+            font-size: 0.9375rem;
+        }
+        .item-weight {
+            font-size: 0.875rem;
         }
 
         .item-price {
-            margin-top: 1rem;
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1.25rem;
+
             text-align: center;
             color: mixins.$main-accent;
         }
     }
 
-    .item-footer {
-        padding: 1.5rem;
-        padding-top: 0;
+    // .item-footer {
+    //     padding: 1.5rem;
+    //     padding-top: 0;
 
+    //     display: flex;
+    //     flex-direction: column;
+    //     gap: 1.5rem;
+
+    .item-addons {
+        label {
+            display: flex;
+            flex-direction: column;
+            font-size: 0.95rem;
+            gap: 0.2rem;
+        }
+    }
+
+    .item-controls {
         display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+        gap: 0.625rem;
 
-        .item-addons {
-            label {
-                display: flex;
-                flex-direction: column;
-                font-size: 0.95rem;
-                gap: 0.2rem;
-            }
+        & > * {
+            flex: 1 1 0;
         }
 
-        .item-controls {
+        .add-to-cart {
+            background-color: mixins.$main-accent;
+            transition: transform 0.2s;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.625rem;
 
-            & > * {
-                flex: 1 1 0;
+            height: 45px;
+            border-radius: 50px;
+
+            &:hover {
+                transform: scale(0.9);
             }
 
-            .add-to-cart {
-                background-color: mixins.$main-accent;
-                transition: transform 0.2s;
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                height: 45px;
-                border-radius: 50px;
-
-                &:hover {
-                    transform: scale(0.9);
-                }
-
-                .shopping-basket-icon {
-                    width: 45px;
-                    color: white;
-                }
+            .shopping-basket-icon {
+                width: 45px;
+                color: white;
             }
         }
     }
+    // }
 }
 </style>
