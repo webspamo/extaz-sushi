@@ -44,7 +44,7 @@ import {useAssortmentStore} from "@/stores/assortment";
 import MenuItem from "../components/MenuItem.vue";
 
 export default {
-    name: "ClassicPage",
+    name: "AddsPage",
     components: {
         MenuItem,
     },
