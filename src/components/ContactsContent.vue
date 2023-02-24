@@ -4,9 +4,9 @@
         <a
             :href="`tel:+38${contacts.phone}`"
             class="contacts-link"
-            >{{ contacts.phone }}</a
+            >{{ contacts.formattedPhone }}</a
         >
-        <p>{{ contacts.text }}</p>
+        <p class="contacts-text">{{ contacts.text }}</p>
 
         <div class="social">
             <a
@@ -45,6 +45,7 @@ export default {
                 title: "Контакти",
                 phone: null,
                 text: "Доставка по Києву",
+                formattedPhone: "",
             },
         };
     },
@@ -53,6 +54,13 @@ export default {
     },
     created() {
         this.contacts.phone = this.phone;
+        this.contacts.formattedPhone = `(${this.phone.substring(
+            0,
+            3
+        )}) ${this.phone.substring(3, 6)} ${this.phone.substring(
+            6,
+            8
+        )} ${this.phone.substring(8)}`;
     },
 };
 </script>
@@ -60,19 +68,24 @@ export default {
 <style lang="scss" scoped>
 @use "@/assets/styles/_mixins";
 .contacts-content {
-    font-size: 1.625rem;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.contacts-link {
+    & > *:not(:last-child) {
+        margin-bottom: 2.8125rem;
+    }
 }
-
 .contacts-title {
     font-size: 2.625rem;
     line-height: 1.23;
+}
+
+.contacts-link {
+    font-size: 1.625rem;
+}
+.contacts-text {
+    font-size: 1.625rem;
 }
 
 .social {
