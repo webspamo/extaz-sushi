@@ -7,6 +7,7 @@ import SetsPage from "@/views/SetsPage.vue";
 import SushiPage from "@/views/SushiPage.vue";
 import BakedPage from "@/views/BakedPage.vue";
 import AddsPage from "@/views/AddsPage.vue";
+import DeliveryPaymentPage from "@/views/DeliveryPaymentPage.vue";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -38,6 +39,10 @@ export default createRouter({
         {
             path: "/adds",
             component: AddsPage,
+        },
+        {
+            path: "/delivery&payment",
+            component: DeliveryPaymentPage,
         },
     ],
 });

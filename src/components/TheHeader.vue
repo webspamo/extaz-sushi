@@ -3,11 +3,11 @@
         <nav class="header-navigation">
             <ul class="navigation-list">
                 <li class="navigation-item">
-                    <a
-                        href="#"
+                    <router-link
+                        :to="`/delivery&payment`"
                         class="navigation-link">
                         Доставка та оплата
-                    </a>
+                    </router-link>
                 </li>
                 <li class="navigation-item navigation-dropdown">
                     <button
