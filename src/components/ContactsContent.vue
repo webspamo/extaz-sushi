@@ -71,10 +71,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    & > *:not(:last-child) {
-        margin-bottom: 2.8125rem;
-    }
+    gap: 2.8125rem;
 }
 .contacts-title {
     font-size: 2.625rem;

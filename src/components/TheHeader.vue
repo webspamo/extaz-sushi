@@ -87,6 +87,7 @@ export default {
 .header {
     height: 75px;
     padding: 0 1.25rem;
+    font-size: 1.125rem;
     background-color: mixins.$main-bg-color;
 
     display: flex;

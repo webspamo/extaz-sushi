@@ -10,7 +10,7 @@
             <h3 class="card-titile">
                 {{ card.title }}
             </h3>
-            <p>
+            <p class="card-text">
                 {{ card.text }}
             </p>
         </div>
@@ -36,7 +36,7 @@ export default {
                 {
                     id: "deliveryInfo",
                     title: "Доставимо",
-                    text: "до дверей ~60хв безкоштовно по Печерському р-ну +10 грн за кожен наступний км",
+                    text: `до дверей ~60хв\n\nбезкоштовно\nпо Печерському р-ну\n+10 грн за кожен наступний км`,
                     iconName: "delivery",
                     imagePath: "/src/assets/icons/delivery-icon.svg",
                     imageAlt: "Delivery outline image",
@@ -44,7 +44,7 @@ export default {
                 {
                     id: "toGoInfo",
                     title: "Самовиніс",
-                    text: "Печерський район, вул. Іоанна Павла || 7 Тільки за попереднім замовленням",
+                    text: "Печерський район,\n вул. Іоанна Павла || 7\n\nтільки за попереднім замовленням",
                     iconName: "location",
                     imagePath: "/src/assets/icons/to-go-icon.svg",
                     imageAlt: "Map point outline image",
@@ -52,7 +52,7 @@ export default {
                 {
                     id: "paymentInfo",
                     title: "Сплачуй зручно",
-                    text: "готівкою при отриманні карткою на сайті",
+                    text: "готівкою при отриманні\nкарткою на сайті",
                     iconName: "payment",
                     imagePath: "/src/assets/icons/payment-icon.svg",
                     imageAlt: "Payment type outline image",
@@ -60,7 +60,7 @@ export default {
                 {
                     id: "workingHoursInfo",
                     title: "Працюємо",
-                    text: `щодня з ${this.workingStartHours} до ${this.workingEndHours}`,
+                    text: `щодня\nз ${this.workingStartHours} до ${this.workingEndHours}`,
                     iconName: "hours",
                     imagePath: "/src/assets/icons/clock-icon.svg",
                     imageAlt: "Clock outline image",
@@ -82,26 +82,35 @@ export default {
 <style lang="scss" scoped>
 @use "@/assets/styles/_mixins";
 .info-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.75rem 3.75rem;
 }
 
 .info-card {
-    width: 255px;
+    & > :not(:first-child) {
+        text-align: center;
+    }
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
 }
 
 .card-titile {
+    //second-row
+    white-space: nowrap;
     text-transform: uppercase;
-    font-size: 1.875rem;
+    font-size: 1.875rem; //
+}
+
+.card-text {
+    font-size: 1.25rem;
+    white-space: pre-line;
 }
 .card-icon {
-    width: 6.25rem;
+    width: auto;
     height: 6.25rem;
     fill: mixins.$main-accent;
 }

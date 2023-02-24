@@ -45,7 +45,7 @@ export default {
     .category-title {
         color: mixins.$main-text-color;
         font-size: 2.625rem;
-        line-height: 1.55;
+        font-weight: 400;
         text-transform: uppercase;
     }
 }

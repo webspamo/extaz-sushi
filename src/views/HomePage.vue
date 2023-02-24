@@ -95,8 +95,9 @@ export default {
 
 .item-categories {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    grid-template-columns: 400px 400px;
     grid-template-rows: 350px 250px 150px;
-    gap: 40px 60px;
+    gap: 2.5rem 3.75rem;
 }
 </style>
