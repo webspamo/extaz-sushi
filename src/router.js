@@ -8,6 +8,8 @@ import SushiPage from "@/views/SushiPage.vue";
 import BakedPage from "@/views/BakedPage.vue";
 import AddsPage from "@/views/AddsPage.vue";
 import DeliveryPaymentPage from "@/views/DeliveryPaymentPage.vue";
+import RefundPolicyPage from "@/views/RefundPolicyPage.vue";
+import OfferAgreement from "@/views/OfferAgreementPage.vue";
 
 export default createRouter({
     history: createWebHashHistory(),
@@ -41,8 +43,16 @@ export default createRouter({
             component: AddsPage,
         },
         {
-            path: "/delivery&payment",
+            path: "/delivery-payment",
             component: DeliveryPaymentPage,
+        },
+        {
+            path: "/public-offer-agreement",
+            component: OfferAgreement,
+        },
+        {
+            path: "/refund-policy",
+            component: RefundPolicyPage,
         },
     ],
 });

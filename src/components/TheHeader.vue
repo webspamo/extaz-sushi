@@ -4,7 +4,7 @@
             <ul class="navigation-list">
                 <li class="navigation-item">
                     <router-link
-                        :to="`/delivery&payment`"
+                        :to="`/delivery-payment`"
                         class="navigation-link">
                         Доставка та оплата
                     </router-link>
@@ -54,9 +54,9 @@
 </template>
 
 <script>
+import {mapState} from "pinia";
 import {useSiteStore} from "../stores/site";
 import {useAssortmentStore} from "../stores/assortment";
-import {mapState} from "pinia";
 
 import BaseIcon from "./BaseIcon.vue";
 import MainLogo from "./MainLogo.vue";
@@ -85,7 +85,7 @@ export default {
 @use "@/assets/styles/_mixins.scss";
 
 .header {
-    height: 75px;
+    height: 4.6875rem;
     padding: 0 1.25rem;
     font-size: 1.125rem;
     background-color: mixins.$main-bg-color;
