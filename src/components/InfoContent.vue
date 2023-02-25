@@ -2,7 +2,7 @@
     <div class="info-content container">
         <div
             class="info-card"
-            v-for="card in cards"
+            v-for="card in infoCards"
             :key="card.id">
             <SvgCustomIcon
                 class="card-icon"
@@ -29,52 +29,11 @@ export default {
         SvgCustomIcon,
     },
     data() {
-        return {
-            workingStartHours: null,
-            workingEndHours: null,
-            cards: [
-                {
-                    id: "deliveryInfo",
-                    title: "Доставимо",
-                    text: `до дверей ~60хв\n\nбезкоштовно\nпо Печерському р-ну\n+10 грн за кожен наступний км`,
-                    iconName: "delivery",
-                    imagePath: "/src/assets/icons/delivery-icon.svg",
-                    imageAlt: "Delivery outline image",
-                },
-                {
-                    id: "toGoInfo",
-                    title: "Самовиніс",
-                    text: "Печерський район,\n вул. Іоанна Павла || 7\n\nтільки за попереднім замовленням",
-                    iconName: "location",
-                    imagePath: "/src/assets/icons/to-go-icon.svg",
-                    imageAlt: "Map point outline image",
-                },
-                {
-                    id: "paymentInfo",
-                    title: "Сплачуй зручно",
-                    text: "готівкою при отриманні\nкарткою на сайті",
-                    iconName: "payment",
-                    imagePath: "/src/assets/icons/payment-icon.svg",
-                    imageAlt: "Payment type outline image",
-                },
-                {
-                    id: "workingHoursInfo",
-                    title: "Працюємо",
-                    text: `щодня\nз ${this.workingStartHours} до ${this.workingEndHours}`,
-                    iconName: "hours",
-                    imagePath: "/src/assets/icons/clock-icon.svg",
-                    imageAlt: "Clock outline image",
-                },
-            ],
-        };
+        return {};
     },
 
     computed: {
-        ...mapState(useSiteStore, ["startHours", "endHours"]),
-    },
-    created() {
-        this.workingStartHours = this.startHours;
-        this.workingEndHours = this.endHours;
+        ...mapState(useSiteStore, ["infoCards"]),
     },
 };
 </script>
